@@ -1,0 +1,13 @@
+{
+  "case": "101917",
+  "authority": "NON_EVALUATIVE",
+  "urdf": "101917.urdf",
+  "textures": [],
+  "joints": 8,
+  "geometry_unchanged": true,
+  "joint_parameters_unchanged": true,
+  "limitations": [
+    "Only base color baked; Blender procedural bump, roughness and emission may display differently through MTL.",
+    "Normalized dimensions and provisional joint ranges retained; dynamics remain unspecified."
+  ]
+}

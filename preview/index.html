@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#161616">
+  <meta name="description" content="Research notes on programming interactive 3D scenes from monocular images for embodied simulation. Current research content is based on NeoWorld-Pro.">
+  <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
+  <title>NeoWorld — Interactive Scene Reconstruction</title>
+  <link rel="stylesheet" href="style.css?v=pages-13">
+  <script defer src="vendor/three.min.js"></script>
+  <script defer src="vendor/anime.umd.min.js"></script>
+  <script defer src="vendor/DRACOLoader.js"></script>
+  <script defer src="vendor/GLTFLoader.js"></script>
+  <script defer src="scene-hero.js?v=pages-13"></script>
+  <script defer src="app.js?v=scene1-10"></script>
+  <script defer src="vendor/OBJLoader.js"></script>
+  <script defer src="vendor/OrbitControls.js"></script>
+  <script defer src="articulation.js?v=pages-13"></script>
+  <script defer src="scene-video.js?v=autoplay-9"></script>
+</head>
+<body>
+  <a class="skip-link" href="#research">Skip to article</a>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="NeoWorld home"><img class="brand-mark" src="brand/neoworld-nw-small.svg?v=final-green-6" alt=""><span>NeoWorld<span class="brand-dot">3</span></span></a>
+    <nav aria-label="Main navigation"><a href="#research">Research</a><a href="#scene-demo">Scenes</a><a href="#interactive">Objects</a><a class="studio-link" href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">NeoWorld Studio <span>↗</span></a></nav>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="paper-title">
+      <div id="world" aria-hidden="true"></div><div class="veil" aria-hidden="true"></div>
+      <div class="cover">
+        <div class="eyebrow reveal">RESEARCH / EMBODIED SIMULATION</div>
+        <h1 id="paper-title"><span class="title-line">Programming</span><span class="title-line">interactive scenes</span><span class="title-line">from monocular images<span class="period">.</span></span></h1>
+        <p class="cover-subtitle reveal">for Embodied Simulation</p>
+        <p class="cover-summary reveal">A single RGB image becomes an executable 3D scene, with programmable geometry, articulation, physical properties, and layout.</p>
+        <div class="project-links reveal"><a class="primary-link" href="https://arxiv.org/abs/2608.24212v1" target="_blank" rel="noopener">Read the paper <span>↗</span></a><a href="https://neoworldproject.github.io/neoworld-pro-website/" target="_blank" rel="noopener">NeoWorld-Pro project <span>↗</span></a></div>
+        <p class="content-source reveal">Current research content: <a href="https://neoworldproject.github.io/neoworld-pro-website/" target="_blank" rel="noopener">NeoWorld-Pro</a></p>
+      </div>
+    </section>
+    <div class="article-grid">
+      <aside class="article-toc"><nav aria-label="Article contents"><p>ON THIS PAGE</p><a href="#research">01 <span>Overview</span></a><a href="#method">02 <span>Method</span></a><a href="#scene-demo">03 <span>Scenes</span></a><a href="#interactive">04 <span>Articulation</span></a><a href="#benchmark">05 <span>Evaluation</span></a><a href="#bibtex">06 <span>Citation</span></a></nav></aside>
+      <article class="article-body" aria-label="NeoWorld-Pro research overview">
+        <section class="article-section" id="research" aria-labelledby="research-heading">
+          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">OVERVIEW</p><h2 id="research-heading">Interactive scene reconstruction</h2></div></div>
+          <p class="lead">NeoWorld-Pro formulates monocular scene reconstruction as a procedural programming task for interactive 3D environments.</p>
+          <p>Multimodal large language models translate a single RGB image into executable programs that describe object geometry, articulated parts, physical properties, and scene layout. This representation supports editing and interaction, alongside visual reconstruction.</p>
+          <p>A physics-in-the-loop mechanism executes the generated programs in a physics engine and refines them using simulation feedback. The resulting scenes support stable stacking, fine-grained manipulation, and articulated object interactions.</p>
+          <div class="paper-meta"><p class="meta-label">NEOWORLD-PRO · 2026</p><p>Yumeng He<sup>*</sup>, Yichen Song<sup>*</sup>, Xiaotian Yang, Weijia Zhang, Zanwei Zhou, Junru Gong, Xiaokang Yang, Yunbo Wang<sup>†</sup></p><p class="affiliation">Shanghai Jiao Tong University</p><p class="author-notes">* Equal contribution &nbsp; · &nbsp; † Corresponding author</p></div>
+        </section>
+        <section class="article-section" id="method" aria-labelledby="method-heading">
+          <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">METHOD</p><h2 id="method-heading">Scene programs and physics feedback</h2></div></div>
+          <p>The reconstruction pipeline connects visual observations, executable scene descriptions, and simulation feedback.</p>
+          <figure class="pipeline"><div class="pipeline-step"><span class="pipeline-index">01 / INPUT</span><h3>RGB image</h3><p>Objects and spatial relationships in a monocular observation.</p></div><span class="pipeline-arrow" aria-hidden="true">→</span><div class="pipeline-step"><span class="pipeline-index">02 / REPRESENTATION</span><h3>Scene program</h3><p>Geometry, joints, physical properties, and object placement.</p></div><span class="pipeline-arrow" aria-hidden="true">→</span><div class="pipeline-step"><span class="pipeline-index">03 / EXECUTION</span><h3>Physics simulation</h3><p>Execute the program and refine it with simulation feedback.</p></div><figcaption>Pipeline summary based on NeoWorld-Pro. Simulation feedback informs iterative program refinement.</figcaption></figure>
+          <div class="method-details"><div><h3>Programmable representation</h3><p>Geometry and articulation are defined in code. Object structure and scene layout can be inspected, changed, and regenerated.</p></div><div><h3>Physics-in-the-loop refinement</h3><p>Generated scenes are executed in a physics engine. Simulation feedback guides updates to improve physical executability.</p></div></div>
+        </section>
+        <section class="scene-demo article-section" id="scene-demo" aria-labelledby="scene-demo-heading">
+          <div class="section-heading"><span class="section-number">03</span><div><p class="eyebrow">SCENE RECONSTRUCTION</p><h2 id="scene-demo-heading">Capture and reconstruction</h2></div></div>
+          <p class="section-intro">This NeoWorld Studio example compares an original capture with its reconstructed Blender scene.</p>
+          <figure class="scene-video-card"><div class="scene-video-bar"><span>NEOWORLD STUDIO / SCENE 01</span><a href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">View Studio ↗</a></div><video id="scene-video" controls muted loop playsinline preload="metadata" poster="./assets/studio/posters/scene-01.jpg" aria-label="NeoWorld Studio: original capture on the left and reconstructed Blender scene on the right"><source src="./assets/studio/videos/scene-01.mp4" type="video/mp4">Your browser does not support embedded video. <a href="./assets/studio/videos/scene-01.mp4">Open the video</a>.</video><p class="scene-video-error" hidden role="status">Unable to load this video. <a href="./assets/studio/videos/scene-01.mp4" target="_blank" rel="noopener">Open video file ↗</a></p><figcaption><span>Left: original capture</span><span>Right: reconstructed scene</span></figcaption></figure>
+        </section>
+  <section class="articulation-section" id="interactive" aria-labelledby="interactive-heading">
+    <div class="section-heading"><span class="section-number">04</span><div><p class="eyebrow">ARTICULATED ASSETS</p><h2 id="interactive-heading">Object articulation</h2></div></div>
+    <p class="section-intro">Inspect part hierarchies and joint limits in five articulated objects. Select an object, then adjust its joints using the controls below.</p>
+    <div class="object-picker" aria-label="Choose a demo object">
+      <button data-object="10449" aria-pressed="true"><span>01</span> Scissors <small>1 JOINT</small></button>
+      <button data-object="8994" aria-pressed="false"><span>02</span> Door <small>2 JOINTS</small></button>
+      <button data-object="101917" aria-pressed="false"><span>03</span> Oven <small>8 JOINTS</small></button>
+      <button data-object="101463" aria-pressed="false"><span>04</span> Spray bottle <small>4 JOINTS</small></button>
+      <button data-object="103967" aria-pressed="false"><span>05</span> Globe <small>1 JOINT</small></button>
+    </div>
+    <div class="object-workspace" aria-busy="true">
+      <div class="object-stage">
+        <div id="object-canvas" role="img" aria-label="Interactive 3D scissors: drag to orbit, scroll to zoom, and click to select a part"></div>
+        <div class="object-stage-label"><span class="live-dot"></span><span id="object-title">SCISSORS / 10449</span></div>
+        <div class="object-view-tools"><button id="object-wire" aria-pressed="false">Wireframe</button><button id="object-axis" aria-pressed="false">Joint axes</button><button id="object-camera">Reset view ↗</button></div>
+        <div class="object-loading" id="object-loading" role="status"><span class="loading-orbit"></span><p>Loading object…</p><button id="object-retry" hidden>Retry</button></div>
+        <div class="object-stage-footer"><span>Drag to orbit · Scroll to zoom · Right-drag to pan · Click a part</span><span id="object-part">No part selected</span></div>
+      </div>
+      <aside class="joint-sidebar" aria-label="Object joint controls">
+        <div class="joint-heading"><span class="eyebrow">ARTICULATION</span><h3>Joint controls</h3><p id="object-summary">Move a slider to explore its range.</p></div>
+        <div class="joint-actions"><button id="object-play" aria-pressed="false" disabled>▷ Play motion</button><button id="object-reset" disabled>Reset joints ↺</button></div>
+        <div id="joint-controls"></div>
+        <div class="part-picker"><label for="object-links">Select a part</label><select id="object-links" disabled><option value="">All parts</option></select><p id="object-relationship">Select a part to inspect its connections.</p></div>
+        <div class="joint-note">This viewer demonstrates URDF kinematics with normalized dimensions; it does not run a physics simulation.</div>
+      </aside>
+    </div>
+    <p class="articulation-caption"><span>Revolute joints: degrees · Prismatic joints: normalized scene units</span><a href="https://neoworldproject.github.io/neoworld-pro-website/#interactive" target="_blank" rel="noopener">NeoWorld-Pro research ↗</a></p>
+  </section>
+        <section class="article-section" id="benchmark" aria-labelledby="benchmark-heading">
+          <div class="section-heading"><span class="section-number">05</span><div><p class="eyebrow">EVALUATION</p><h2 id="benchmark-heading">Dataset and benchmark</h2></div></div>
+          <p>NeoWorld-Pro is evaluated on PartNet-Mobility and a synthetic multi-object scene benchmark. Tasks cover placement, assembly, articulation, and interaction with task-relevant affordances.</p>
+          <div class="benchmark-stats"><div><strong>90</strong><span>Articulated categories</span></div><div><strong>30</strong><span>USD-format scenes</span></div><div><strong>84</strong><span>Manipulation tasks</span></div><div><strong>92.85<small>%</small></strong><span>Task success rate</span></div></div>
+          <p class="result-source">Results reported for NeoWorld-Pro. <a href="https://neoworldproject.github.io/neoworld-pro-website/#benchmark" target="_blank" rel="noopener">See the original evaluation ↗</a></p>
+        </section>
+        <section class="article-section" id="bibtex" aria-labelledby="citation-heading">
+          <div class="section-heading"><span class="section-number">06</span><div><p class="eyebrow">REFERENCE</p><h2 id="citation-heading">Citation</h2></div></div>
+          <p>For the research summarized on this page, cite NeoWorld-Pro.</p>
+          <pre class="bibtex"><code>@misc{he2026NeoWorld-Pro,
+  title  = {NeoWorld-Pro: Programming Interactive Scenes from
+            Monocular Images for Embodied Simulation},
+  author = {He, Yumeng and Song, Yichen and Yang, Xiaotian and
+            Zhang, Weijia and Zhou, Zanwei and Gong, Junru and
+            Yang, Xiaokang and Wang, Yunbo},
+  year   = {2026},
+  note   = {Project page}
+}</code></pre>
+        </section>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><a class="footer-brand" href="#top">NeoWorld</a><div><a href="https://arxiv.org/abs/2608.24212v1" target="_blank" rel="noopener">Paper ↗</a><a href="https://neoworldproject.github.io/neoworld-pro-website/" target="_blank" rel="noopener">NeoWorld-Pro ↗</a><a href="#top">Back to top ↑</a></div></footer>
+  <noscript><p class="no-script">Enable JavaScript to use the interactive 3D object viewer.</p></noscript>
+</body>
+</html>

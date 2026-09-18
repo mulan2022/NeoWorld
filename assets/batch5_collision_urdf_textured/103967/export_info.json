@@ -1,0 +1,30 @@
+{
+  "case": "103967",
+  "authority": "NON_EVALUATIVE",
+  "urdf": "103967.urdf",
+  "textures": [
+    {
+      "type": "original_image",
+      "path": "textures/globe_matte_printed_paper_packed_artwork.png",
+      "size": [
+        1536,
+        768
+      ]
+    },
+    {
+      "type": "original_image",
+      "path": "textures/stand_cream_educational_print_packed_artwork.png",
+      "size": [
+        1536,
+        384
+      ]
+    }
+  ],
+  "joints": 1,
+  "geometry_unchanged": true,
+  "joint_parameters_unchanged": true,
+  "limitations": [
+    "Only base color baked; Blender procedural bump, roughness and emission may display differently through MTL.",
+    "Normalized dimensions and provisional joint ranges retained; dynamics remain unspecified."
+  ]
+}

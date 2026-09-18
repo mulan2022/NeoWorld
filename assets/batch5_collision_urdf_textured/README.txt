@@ -1,0 +1,1 @@
+Five articulated URDFs with portable OBJ/MTL materials and PNG textures. Open <object_id>/<object_id>.urdf and retain its meshes/ and textures/ directories. Packed original artwork and baked procedural base colors are included. Two objects use original solid colors. Joint parameters and geometry are unchanged. See each folder README for limitations.

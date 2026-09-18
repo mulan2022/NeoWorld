@@ -1,0 +1,30 @@
+{
+  "case": "10449",
+  "authority": "NON_EVALUATIVE",
+  "urdf": "10449.urdf",
+  "textures": [
+    {
+      "type": "baked_base_color",
+      "path": "textures/mesh_000_basecolor.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "type": "baked_base_color",
+      "path": "textures/mesh_002_basecolor.png",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "joints": 1,
+  "geometry_unchanged": true,
+  "joint_parameters_unchanged": true,
+  "limitations": [
+    "Only base color baked; Blender procedural bump, roughness and emission may display differently through MTL.",
+    "Normalized dimensions and provisional joint ranges retained; dynamics remain unspecified."
+  ]
+}
