@@ -1,0 +1,21 @@
+{
+  "source_frame": "authored_normalized (model units; meters per model unit not measured)",
+  "source_spec": "object_spec_model_frame.json",
+  "joint_zero": "source q0 (URDF limits shifted by q0)",
+  "collision": "not exported: visual geometry is not certified collision geometry",
+  "dynamics": "inertial masses, effort and velocity are not measured; URDF effort/velocity placeholders are 1",
+  "visual": "URDF references OBJ+MTL; companion GLB provides glTF PBR; original Blender files preserve all shader nodes",
+  "parts": {
+    "fixed_root": 27,
+    "link_front_lid_hinge": 6,
+    "link_top_carry_handle_fold": 1,
+    "link_side_carry_handle_fold": 1,
+    "link_wheel_front_left_roll": 3,
+    "link_wheel_front_right_roll": 3,
+    "link_wheel_rear_left_roll": 3,
+    "link_wheel_rear_right_roll": 3,
+    "link_telescoping_handle_slide": 3
+  },
+  "textures": [],
+  "joint_count": 8
+}

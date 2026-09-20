@@ -1,0 +1,83 @@
+{
+  "format_version": 1,
+  "name": "object_v4_articulation_candidate",
+  "root_part": "fixed_root",
+  "parts": [
+    {
+      "name": "fixed_root",
+      "root_object": "body",
+      "followers": [
+        "metal_guide",
+        "rear_cap"
+      ],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_blade_slider_translation",
+      "root_object": "blade",
+      "followers": [
+        "slider"
+      ],
+      "tags": [],
+      "metadata": {}
+    }
+  ],
+  "joints": [
+    {
+      "name": "blade_slider_translation",
+      "joint_type": "prismatic",
+      "parent": "fixed_root",
+      "child": "link_blade_slider_translation",
+      "frame": {
+        "origin_xyz": [
+          0.0,
+          0.095,
+          0.01615
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        4.255183465430989e-19,
+        1.0,
+        0.0
+      ],
+      "limits": [
+        -0.05811997203153631,
+        0.009686662005256051
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "worker time budget exhausted",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch8_4router_collision_refine10_20260919_135630/101052/articulation/solid_checks/check_001/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_01"
+      }
+    }
+  ],
+  "metadata": {
+    "asset_status": "provisional_kinematic",
+    "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+    "collision_evidence_by_joint": {
+      "blade_slider_translation": {
+        "claim": "none",
+        "reason": "worker time budget exhausted",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch8_4router_collision_refine10_20260919_135630/101052/articulation/solid_checks/check_001/result.json",
+        "status": "unknown"
+      }
+    },
+    "combined_motion_clearance": "unmeasured",
+    "geometry_frame": "authored_normalized",
+    "world_semantics": "world is authored_normalized, not reference world"
+  }
+}

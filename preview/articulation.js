@@ -16,6 +16,11 @@
     '101917': { title: 'OVEN', label: 'Oven', names: { oven_door_hinge: 'Oven door' } },
     '101463': { title: 'SPRAY BOTTLE', label: 'Spray bottle', names: { closure_turn: 'Bottle closure', head_swivel: 'Sprayer head', trigger_hinge: 'Trigger press', plunger_slide: 'Pump travel' } },
     '103967': { title: 'GLOBE', label: 'Globe', names: { globe_spin: 'Globe rotation' } },
+    '100520': { title: 'FOLDING CHAIR', label: 'Folding chair', names: { left_link_pivot: 'Left linkage', right_link_pivot: 'Right linkage', seat_fold: 'Seat fold', rear_frame_fold: 'Rear frame' } },
+    '100842': { title: 'SUITCASE', label: 'Suitcase', names: { front_lid_hinge: 'Front lid', top_carry_handle_fold: 'Top handle', side_carry_handle_fold: 'Side handle', wheel_front_left_roll: 'Front-left wheel', wheel_front_right_roll: 'Front-right wheel', wheel_rear_left_roll: 'Rear-left wheel', wheel_rear_right_roll: 'Rear-right wheel', telescoping_handle_slide: 'Telescoping handle' } },
+    '101052': { title: 'UTILITY KNIFE', label: 'Utility knife', names: { blade_slider_translation: 'Blade extension' } },
+    '101220': { title: 'INDUSTRIAL FAN', label: 'Industrial fan', names: { joint_01: 'Fan rotor' } },
+    '101284': { title: 'SAFETY GLASSES', label: 'Safety glasses', names: { temple_left_hinge: 'Left temple', temple_right_hinge: 'Right temple' } },
   };
   let renderer, scene, camera, orbit, grid, current, inView = false, dirty = true;
   let selectedLink = '', showAxes = false, wireframe = false, playing = false, generation = 0;

@@ -1,0 +1,83 @@
+{
+  "format_version": 1,
+  "name": "object_v4_articulation_candidate",
+  "root_part": "fixed_root",
+  "parts": [
+    {
+      "name": "fixed_root",
+      "root_object": "stationary_frame",
+      "followers": [
+        "motor_housing",
+        "motor_rotor",
+        "drive_belt"
+      ],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "moving_group",
+      "root_object": "fan_rotor",
+      "followers": [
+        "blade_left",
+        "blade_upper_right",
+        "blade_lower_right"
+      ],
+      "tags": [],
+      "metadata": {}
+    }
+  ],
+  "joints": [
+    {
+      "name": "joint_01",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "moving_group",
+      "frame": {
+        "origin_xyz": [
+          0.0,
+          -0.033,
+          0.5
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "limits": [
+        -0.2617993877991494,
+        0.2617993877991494
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/retry_502_20260919_161436/101220_articulation/articulation/solid_checks/check_003/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_03"
+      }
+    }
+  ],
+  "metadata": {
+    "asset_status": "provisional_kinematic",
+    "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+    "collision_evidence": {
+      "claim": "none",
+      "reason": "Some Boolean poses are unmeasurable",
+      "result_path": "/data1/zjniu/neoworld_output/object_v4/retry_502_20260919_161436/101220_articulation/articulation/solid_checks/check_003/result.json",
+      "status": "unknown"
+    },
+    "geometry_frame": "authored_normalized",
+    "world_semantics": "world is authored_normalized, not reference world"
+  }
+}

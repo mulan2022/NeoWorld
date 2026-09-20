@@ -1,0 +1,67 @@
+{
+  "from": "authored_normalized",
+  "to": "estimated_render_frame_normalized",
+  "matrix": [
+    [
+      1.032256084993171,
+      -0.013727989842685593,
+      0.0,
+      -0.009955947036145059
+    ],
+    [
+      0.013727989842685593,
+      1.032256084993171,
+      0.0,
+      -0.014979511139992024
+    ],
+    [
+      0.0,
+      0.0,
+      1.0323473653332726,
+      0.004994127190148145
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "inverse_transform": {
+    "authoring_frame": "estimated_render_frame_normalized",
+    "assembly_frame": "authored_normalized",
+    "is_identity": false,
+    "uniform_scale": 0.9686662005256051,
+    "matrix": [
+      [
+        0.9685805508855729,
+        0.012881167917230468,
+        0.0,
+        0.00983609026316923
+      ],
+      [
+        -0.012881167917230466,
+        0.9685805508855728,
+        0.0,
+        0.014380618926422412
+      ],
+      [
+        0.0,
+        0.0,
+        0.9686662005256051,
+        -0.00483764221022242
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "model_spec": "object_spec_model_frame.json",
+  "render_frame_spec": "object_spec_render_frame.json",
+  "model_static_blend": "static.blend",
+  "runtime_model_frame": "runtime_model_frame.json",
+  "runtime_render_frame": "runtime_render_frame.json"
+}

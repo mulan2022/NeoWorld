@@ -1,0 +1,26 @@
+{
+  "source_frame": "authored_normalized (model units; meters per model unit not measured)",
+  "source_spec": "object_spec_model_frame.json",
+  "joint_zero": "source q0 (URDF limits shifted by q0)",
+  "collision": "not exported: visual geometry is not certified collision geometry",
+  "dynamics": "inertial masses, effort and velocity are not measured; URDF effort/velocity placeholders are 1",
+  "visual": "URDF references OBJ+MTL; companion GLB provides glTF PBR; original Blender files preserve all shader nodes",
+  "parts": {
+    "fixed_root": 8,
+    "link_left_link_pivot": 3,
+    "link_right_link_pivot": 3,
+    "link_seat_fold": 1,
+    "link_rear_frame_fold": 3
+  },
+  "textures": [
+    {
+      "image": "distressed_navy_backrest_print_packed_art",
+      "file": "textures/distressed_navy_backrest_print_packed_art.png"
+    },
+    {
+      "image": "sepia_event_poster_seat_packed_art",
+      "file": "textures/sepia_event_poster_seat_packed_art.png"
+    }
+  ],
+  "joint_count": 4
+}

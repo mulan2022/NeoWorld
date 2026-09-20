@@ -1,0 +1,449 @@
+{
+  "format_version": 1,
+  "name": "object_v4_articulation_candidate",
+  "root_part": "fixed_root",
+  "parts": [
+    {
+      "name": "fixed_root",
+      "root_object": "body",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_front_lid_hinge",
+      "root_object": "front_lid",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_top_carry_handle_fold",
+      "root_object": "top_carry_handle",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_side_carry_handle_fold",
+      "root_object": "side_carry_handle",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_wheel_front_left_roll",
+      "root_object": "wheel_front_left",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_wheel_front_right_roll",
+      "root_object": "wheel_front_right",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_wheel_rear_left_roll",
+      "root_object": "wheel_rear_left",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_wheel_rear_right_roll",
+      "root_object": "wheel_rear_right",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_telescoping_handle_slide",
+      "root_object": "telescoping_handle",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    }
+  ],
+  "joints": [
+    {
+      "name": "front_lid_hinge",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_front_lid_hinge",
+      "frame": {
+        "origin_xyz": [
+          -0.24656000000000003,
+          -0.08165,
+          0.39999999999999997
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "limits": [
+        -0.7853981633974483,
+        0.0
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_008/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_08"
+      }
+    },
+    {
+      "name": "top_carry_handle_fold",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_top_carry_handle_fold",
+      "frame": {
+        "origin_xyz": [
+          -0.02001,
+          0.014214,
+          0.7579168
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        -3.496265447625828e-18,
+        0.0
+      ],
+      "limits": [
+        -0.6108652381980153,
+        0.6108652381980153
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_010/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_10"
+      }
+    },
+    {
+      "name": "side_carry_handle_fold",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_side_carry_handle_fold",
+      "frame": {
+        "origin_xyz": [
+          0.21344000000000002,
+          0.0034500000000000004,
+          0.38758000000000004
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "limits": [
+        -0.6108652381980153,
+        0.6108652381980153
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_011/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_11"
+      }
+    },
+    {
+      "name": "wheel_front_left_roll",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_wheel_front_left_roll",
+      "frame": {
+        "origin_xyz": [
+          -0.13961,
+          -0.05865,
+          0.023999999999999997
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        -3.496265447625828e-18,
+        0.0
+      ],
+      "limits": [
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_012/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_12"
+      }
+    },
+    {
+      "name": "wheel_front_right_roll",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_wheel_front_right_roll",
+      "frame": {
+        "origin_xyz": [
+          0.09959000000000001,
+          -0.058649999999999994,
+          0.023999999999999997
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        -3.496265447625828e-18,
+        0.0
+      ],
+      "limits": [
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_013/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_13"
+      }
+    },
+    {
+      "name": "wheel_rear_left_roll",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_wheel_rear_left_roll",
+      "frame": {
+        "origin_xyz": [
+          -0.13961000000000004,
+          0.05864999999999999,
+          0.023999999999999997
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        -3.496265447625828e-18,
+        0.0
+      ],
+      "limits": [
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_014/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_14"
+      }
+    },
+    {
+      "name": "wheel_rear_right_roll",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_wheel_rear_right_roll",
+      "frame": {
+        "origin_xyz": [
+          0.09959000000000001,
+          0.05865000000000001,
+          0.023999999999999997
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        -3.496265447625828e-18,
+        0.0
+      ],
+      "limits": [
+        -0.7853981633974483,
+        0.7853981633974483
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_015/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_15"
+      }
+    },
+    {
+      "name": "telescoping_handle_slide",
+      "joint_type": "prismatic",
+      "parent": "fixed_root",
+      "child": "link_telescoping_handle_slide",
+      "frame": {
+        "origin_xyz": [
+          -0.02001,
+          0.07769399999999999,
+          0.7579168
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "limits": [
+        -0.0403009283002461,
+        0.0
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_009/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_09"
+      }
+    }
+  ],
+  "metadata": {
+    "asset_status": "provisional_kinematic",
+    "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+    "collision_evidence_by_joint": {
+      "front_lid_hinge": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_008/result.json",
+        "status": "unknown"
+      },
+      "side_carry_handle_fold": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_011/result.json",
+        "status": "unknown"
+      },
+      "telescoping_handle_slide": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_009/result.json",
+        "status": "unknown"
+      },
+      "top_carry_handle_fold": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_010/result.json",
+        "status": "unknown"
+      },
+      "wheel_front_left_roll": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_012/result.json",
+        "status": "unknown"
+      },
+      "wheel_front_right_roll": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_013/result.json",
+        "status": "unknown"
+      },
+      "wheel_rear_left_roll": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_014/result.json",
+        "status": "unknown"
+      },
+      "wheel_rear_right_roll": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100842/articulation/solid_checks/check_015/result.json",
+        "status": "unknown"
+      }
+    },
+    "combined_motion_clearance": "unmeasured",
+    "geometry_frame": "authored_normalized",
+    "world_semantics": "world is authored_normalized, not reference world"
+  }
+}

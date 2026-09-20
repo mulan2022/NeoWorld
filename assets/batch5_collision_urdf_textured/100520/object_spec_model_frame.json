@@ -1,0 +1,287 @@
+{
+  "format_version": 1,
+  "name": "object_v4_articulation_candidate",
+  "root_part": "fixed_root",
+  "parts": [
+    {
+      "name": "fixed_root",
+      "root_object": "main_frame",
+      "followers": [
+        "backrest"
+      ],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_left_link_pivot",
+      "root_object": "left_link",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_right_link_pivot",
+      "root_object": "right_link",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_seat_fold",
+      "root_object": "seat",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_rear_frame_fold",
+      "root_object": "rear_frame",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    }
+  ],
+  "joints": [
+    {
+      "name": "left_link_pivot",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_left_link_pivot",
+      "frame": {
+        "origin_xyz": [
+          -0.2932215822623788,
+          0.007643298969072173,
+          0.51752
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        1.0912383572095574e-18,
+        0.0
+      ],
+      "limits": [
+        -0.08726646259971647,
+        0.08726646259971647
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_011/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_11"
+      }
+    },
+    {
+      "name": "right_link_pivot",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_right_link_pivot",
+      "frame": {
+        "origin_xyz": [
+          0.2932215822623788,
+          0.007643298969072177,
+          0.51752
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        1.0912383572095574e-18,
+        0.0
+      ],
+      "limits": [
+        -0.08726646259971647,
+        0.08726646259971647
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_012/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_12"
+      }
+    },
+    {
+      "name": "seat_fold",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_seat_fold",
+      "frame": {
+        "origin_xyz": [
+          0.0,
+          -0.02843917525773199,
+          0.46752
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        1.0912383572095574e-18,
+        0.0
+      ],
+      "limits": [
+        -0.3490658503988659,
+        0.0
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "sampled_clear_only_for_checked_nonexempt_pairs",
+          "coverage": "discrete_host_samples_not_continuous_ccd",
+          "initial_pair_exemptions": [
+            [
+              "backrest",
+              "main_frame"
+            ],
+            [
+              "left_link",
+              "main_frame"
+            ],
+            [
+              "main_frame",
+              "rear_frame"
+            ],
+            [
+              "main_frame",
+              "right_link"
+            ],
+            [
+              "main_frame",
+              "seat"
+            ]
+          ],
+          "pair_semantics": "direct_unordered_pairs_only_not_transitive",
+          "policy_schema": "object_v4.experimental.initial_collision_pair_policy.v1",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_009/result.json",
+          "status": "clear_sampled"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_09"
+      }
+    },
+    {
+      "name": "rear_frame_fold",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_rear_frame_fold",
+      "frame": {
+        "origin_xyz": [
+          2.168404344971009e-19,
+          0.08520618556701032,
+          0.625
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        1.0,
+        1.0912383572095574e-18,
+        0.0
+      ],
+      "limits": [
+        0.0,
+        0.03490658503988659
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_010/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_10"
+      }
+    }
+  ],
+  "metadata": {
+    "asset_status": "provisional_kinematic",
+    "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+    "collision_evidence_by_joint": {
+      "left_link_pivot": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_011/result.json",
+        "status": "unknown"
+      },
+      "rear_frame_fold": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_010/result.json",
+        "status": "unknown"
+      },
+      "right_link_pivot": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_012/result.json",
+        "status": "unknown"
+      },
+      "seat_fold": {
+        "claim": "sampled_clear_only_for_checked_nonexempt_pairs",
+        "coverage": "discrete_host_samples_not_continuous_ccd",
+        "initial_pair_exemptions": [
+          [
+            "backrest",
+            "main_frame"
+          ],
+          [
+            "left_link",
+            "main_frame"
+          ],
+          [
+            "main_frame",
+            "rear_frame"
+          ],
+          [
+            "main_frame",
+            "right_link"
+          ],
+          [
+            "main_frame",
+            "seat"
+          ]
+        ],
+        "pair_semantics": "direct_unordered_pairs_only_not_transitive",
+        "policy_schema": "object_v4.experimental.initial_collision_pair_policy.v1",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch2_100520_100842_full_restart_20260919_163406/100520/articulation/solid_checks/check_009/result.json",
+        "status": "clear_sampled"
+      }
+    },
+    "combined_motion_clearance": "unmeasured",
+    "geometry_frame": "authored_normalized",
+    "world_semantics": "world is authored_normalized, not reference world"
+  }
+}

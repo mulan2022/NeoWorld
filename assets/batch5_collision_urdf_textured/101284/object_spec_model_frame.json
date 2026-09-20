@@ -1,0 +1,133 @@
+{
+  "format_version": 1,
+  "name": "object_v4_articulation_candidate",
+  "root_part": "fixed_root",
+  "parts": [
+    {
+      "name": "fixed_root",
+      "root_object": "body",
+      "followers": [
+        "shield_lens"
+      ],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_temple_left_hinge",
+      "root_object": "temple_left",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    },
+    {
+      "name": "link_temple_right_hinge",
+      "root_object": "temple_right",
+      "followers": [],
+      "tags": [],
+      "metadata": {}
+    }
+  ],
+  "joints": [
+    {
+      "name": "temple_left_hinge",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_temple_left_hinge",
+      "frame": {
+        "origin_xyz": [
+          -0.48600000000000004,
+          0.011000000000000003,
+          0.27953249999999996
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "limits": [
+        0.0,
+        1.0471975511965976
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch8_4router_collision_refine10_20260919_135630/101284/articulation/solid_checks/check_003/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_03"
+      }
+    },
+    {
+      "name": "temple_right_hinge",
+      "joint_type": "revolute",
+      "parent": "fixed_root",
+      "child": "link_temple_right_hinge",
+      "frame": {
+        "origin_xyz": [
+          0.486,
+          0.011000000000000003,
+          0.27953249999999996
+        ],
+        "rotation_rpy": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_to": "world"
+      },
+      "axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "limits": [
+        0.0,
+        1.0471975511965976
+      ],
+      "q0": 0.0,
+      "metadata": {
+        "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+        "collision_evidence": {
+          "claim": "none",
+          "reason": "Some Boolean poses are unmeasurable",
+          "result_path": "/data1/zjniu/neoworld_output/object_v4/batch8_4router_collision_refine10_20260919_135630/101284/articulation/solid_checks/check_004/result.json",
+          "status": "unknown"
+        },
+        "coordinate_scope": "authored_normalized",
+        "probe_id": "probe_04"
+      }
+    }
+  ],
+  "metadata": {
+    "asset_status": "provisional_kinematic",
+    "authority": "EXPERIMENTAL_CANDIDATE_ONLY",
+    "collision_evidence_by_joint": {
+      "temple_left_hinge": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch8_4router_collision_refine10_20260919_135630/101284/articulation/solid_checks/check_003/result.json",
+        "status": "unknown"
+      },
+      "temple_right_hinge": {
+        "claim": "none",
+        "reason": "Some Boolean poses are unmeasurable",
+        "result_path": "/data1/zjniu/neoworld_output/object_v4/batch8_4router_collision_refine10_20260919_135630/101284/articulation/solid_checks/check_004/result.json",
+        "status": "unknown"
+      }
+    },
+    "combined_motion_clearance": "unmeasured",
+    "geometry_frame": "authored_normalized",
+    "world_semantics": "world is authored_normalized, not reference world"
+  }
+}
