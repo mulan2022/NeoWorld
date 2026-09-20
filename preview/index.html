@@ -4,10 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#161616">
-  <meta name="description" content="Research notes on programming interactive 3D scenes from monocular images for embodied simulation. Current research content is based on NeoWorld-Pro.">
+  <meta name="description" content="NeoWorld-3 is an agentic framework for reconstructing simulation-ready interactive worlds from visual observations.">
+  <meta property="og:title" content="NeoWorld-3: Building Interactive Worlds for Embodied Intelligence">
+  <meta property="og:description" content="Coding-agent based reconstruction for simulation-ready interactive worlds.">
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
-  <title>NeoWorld — Interactive Scene Reconstruction</title>
-  <link rel="stylesheet" href="style.css?v=pages-13">
+  <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
+  <link rel="stylesheet" href="style.css?v=blog-14">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="vendor/DRACOLoader.js"></script>
@@ -26,40 +28,72 @@
     <nav aria-label="Main navigation"><a href="#research">Research</a><a href="#scene-demo">Scenes</a><a href="#interactive">Objects</a><a class="studio-link" href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">NeoWorld Studio <span>↗</span></a></nav>
   </header>
   <main id="top">
-    <section class="hero" aria-labelledby="paper-title">
+    <section class="hero" aria-labelledby="blog-title">
       <div id="world" aria-hidden="true"></div><div class="veil" aria-hidden="true"></div>
       <div class="cover">
-        <div class="eyebrow reveal">RESEARCH / EMBODIED SIMULATION</div>
-        <h1 id="paper-title"><span class="title-line">Programming</span><span class="title-line">interactive scenes</span><span class="title-line">from monocular images<span class="period">.</span></span></h1>
-        <p class="cover-subtitle reveal">for Embodied Simulation</p>
-        <p class="cover-summary reveal">A single RGB image becomes an executable 3D scene, with programmable geometry, articulation, physical properties, and layout.</p>
-        <div class="project-links reveal"><a class="primary-link" href="https://arxiv.org/abs/2608.24212v1" target="_blank" rel="noopener">Read the paper <span>↗</span></a><a href="https://neoworldproject.github.io/neoworld-pro-website/" target="_blank" rel="noopener">NeoWorld-Pro project <span>↗</span></a></div>
-        <p class="content-source reveal">Current research content: <a href="https://neoworldproject.github.io/neoworld-pro-website/" target="_blank" rel="noopener">NeoWorld-Pro</a></p>
+        <div class="eyebrow reveal">NEOWORLD-3 / RESEARCH BLOG</div>
+        <h1 id="blog-title"><span class="title-line">Building interactive</span><span class="title-line">worlds for embodied</span><span class="title-line">intelligence<span class="period">.</span></span></h1>
+        <p class="cover-subtitle reveal">Agentic reconstruction for simulation-ready worlds</p>
+        <p class="cover-summary reveal">From visual observations to interactive environments where embodied agents can learn, act, and improve.</p>
+        <div class="project-links reveal"><a class="primary-link" href="#research">Read the article <span>↓</span></a><a href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">Explore NeoWorld Studio <span>↗</span></a></div>
       </div>
     </section>
     <div class="article-grid">
-      <aside class="article-toc"><nav aria-label="Article contents"><p>ON THIS PAGE</p><a href="#research">01 <span>Overview</span></a><a href="#method">02 <span>Method</span></a><a href="#scene-demo">03 <span>Scenes</span></a><a href="#interactive">04 <span>Articulation</span></a><a href="#benchmark">05 <span>Evaluation</span></a><a href="#bibtex">06 <span>Citation</span></a></nav></aside>
-      <article class="article-body" aria-label="NeoWorld-Pro research overview">
+      <aside class="article-toc"><nav aria-label="Article contents"><p>ON THIS PAGE</p><a href="#research">01 <span>Vision</span></a><a href="#framework">02 <span>Framework</span></a><a href="#coding-agents">03 <span>Coding agents</span></a><a href="#agentic-architecture">04 <span>Architecture</span></a><a href="#refinement">05 <span>Refinement</span></a><a href="#simulation-ready">06 <span>Simulation</span></a><a href="#scene-demo">07 <span>Scenes</span></a><a href="#interactive">08 <span>Objects</span></a><a href="#outlook">09 <span>Outlook</span></a></nav></aside>
+      <article class="article-body" aria-label="NeoWorld-3 research blog">
         <section class="article-section" id="research" aria-labelledby="research-heading">
-          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">OVERVIEW</p><h2 id="research-heading">Interactive scene reconstruction</h2></div></div>
-          <p class="lead">NeoWorld-Pro formulates monocular scene reconstruction as a procedural programming task for interactive 3D environments.</p>
-          <p>Multimodal large language models translate a single RGB image into executable programs that describe object geometry, articulated parts, physical properties, and scene layout. This representation supports editing and interaction, alongside visual reconstruction.</p>
-          <p>A physics-in-the-loop mechanism executes the generated programs in a physics engine and refines them using simulation feedback. The resulting scenes support stable stacking, fine-grained manipulation, and articulated object interactions.</p>
-          <div class="paper-meta"><p class="meta-label">NEOWORLD-PRO · 2026</p><p>Yumeng He<sup>*</sup>, Yichen Song<sup>*</sup>, Xiaotian Yang, Weijia Zhang, Zanwei Zhou, Junru Gong, Xiaokang Yang, Yunbo Wang<sup>†</sup></p><p class="affiliation">Shanghai Jiao Tong University</p><p class="author-notes">* Equal contribution &nbsp; · &nbsp; † Corresponding author</p></div>
+          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">THE VISION</p><h2 id="research-heading">Interactive worlds for embodied intelligence</h2></div></div>
+          <p class="lead">For decades, one of the central goals of artificial intelligence has been to build systems that can understand and interact with the world around them.</p>
+          <p>Early AI systems excelled in structured environments where the rules were predefined. The physical world is fundamentally different: it is continuous, dynamic, and full of complex interactions. A robot does not simply need to recognize an object; it needs to understand how that object is structured, how it can move, how it responds to forces, and how it can be manipulated.</p>
+          <p>This challenge has motivated a new paradigm for embodied intelligence: real-to-sim-to-real learning. Instead of collecting all possible experiences directly from the real world, we can reconstruct realistic environments, train intelligent agents inside simulation, and transfer their learned skills back to physical robots.</p>
+          <p>The idea of learning inside artificial worlds has long been imagined in science fiction. In <em>The Matrix</em>, Neo enters a virtual environment where he learns new abilities through interaction. While the real world is far more complex than any fictional simulation, the underlying idea captures an important vision for embodied intelligence.</p>
+          <blockquote class="article-quote">To build truly intelligent machines, we need scalable worlds where they can learn, interact, and improve.</blockquote>
+          <p>Creating such worlds remains one of the biggest challenges today. A simulator requires much more than visual realism. A world that looks realistic but cannot be modified, interacted with, or physically simulated is insufficient for training embodied agents. For embodied intelligence, reconstruction must move beyond generating assets. The ultimate goal is building interactive worlds.</p>
         </section>
-        <section class="article-section" id="method" aria-labelledby="method-heading">
-          <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">METHOD</p><h2 id="method-heading">Scene programs and physics feedback</h2></div></div>
-          <p>The reconstruction pipeline connects visual observations, executable scene descriptions, and simulation feedback.</p>
-          <figure class="pipeline"><div class="pipeline-step"><span class="pipeline-index">01 / INPUT</span><h3>RGB image</h3><p>Objects and spatial relationships in a monocular observation.</p></div><span class="pipeline-arrow" aria-hidden="true">→</span><div class="pipeline-step"><span class="pipeline-index">02 / REPRESENTATION</span><h3>Scene program</h3><p>Geometry, joints, physical properties, and object placement.</p></div><span class="pipeline-arrow" aria-hidden="true">→</span><div class="pipeline-step"><span class="pipeline-index">03 / EXECUTION</span><h3>Physics simulation</h3><p>Execute the program and refine it with simulation feedback.</p></div><figcaption>Pipeline summary based on NeoWorld-Pro. Simulation feedback informs iterative program refinement.</figcaption></figure>
-          <div class="method-details"><div><h3>Programmable representation</h3><p>Geometry and articulation are defined in code. Object structure and scene layout can be inspected, changed, and regenerated.</p></div><div><h3>Physics-in-the-loop refinement</h3><p>Generated scenes are executed in a physics engine. Simulation feedback guides updates to improve physical executability.</p></div></div>
+        <section class="article-section" id="framework" aria-labelledby="framework-heading">
+          <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">INTRODUCING NEOWORLD-3</p><h2 id="framework-heading">From prediction to interactive construction</h2></div></div>
+          <p class="lead">NeoWorld-3 is an agentic framework for reconstructing simulation-ready interactive worlds from visual observations.</p>
+          <p>The recent emergence of large vision-language models and coding agents represents a fundamental opportunity for 3D reconstruction. For decades, reconstruction systems have primarily focused on directly predicting geometric representations from observations. While these methods have achieved impressive visual quality, they remain limited by the difficulty of directly inferring complex structures, interactions, and physical constraints.</p>
+          <p>By allowing models to reason, write programs, invoke tools, inspect outcomes, and iteratively refine their solutions, reconstruction can evolve from direct prediction into an interactive construction process. NeoWorld-3 explores coding-agent based reconstruction as a future direction for building interactive 3D worlds.</p>
+          <div class="principles"><div><span>01</span><h3>Simulation-ready</h3><p>Preserve the geometry, articulation, and physical validity required for downstream simulation.</p></div><div><span>02</span><h3>Agent-built</h3><p>Enable vision-language models to construct and refine worlds through interactive tools.</p></div><div><span>03</span><h3>Object to scene</h3><p>Scale the same reconstruction framework from individual objects to complex environments.</p></div></div>
+          <p>Together, these principles transform reconstruction from a static generation task into an iterative process of reasoning, construction, verification, and refinement.</p>
+        </section>
+        <section class="article-section" id="coding-agents" aria-labelledby="coding-heading">
+          <div class="section-heading"><span class="section-number">03</span><div><p class="eyebrow">A NEW PARADIGM</p><h2 id="coding-heading">Reconstruction through coding agents</h2></div></div>
+          <p>Most existing 3D reconstruction systems are built around direct generation. Given an observation, the model predicts a final representation. This approach has driven tremendous progress, but it also introduces a fundamental limitation: the reasoning process behind the reconstruction is hidden inside the generated result. A mesh does not explicitly describe why an object has a particular structure, how its components are related, or how it should be modified when requirements change.</p>
+          <p>Humans do not design complex objects by directly predicting every geometric element. Instead, we construct them through a sequence of operations: defining components, establishing relationships, modifying parameters, testing results, and refining errors. The recent progress of coding agents provides an opportunity to bring this construction process into 3D reconstruction.</p>
+          <p class="lead">The model is no longer only generating geometry, but actively building an interactive world.</p>
+          <p>NeoWorld-3 does not assume that models should directly predict the final world. Vision-language agents can reason about reconstruction tasks, generate modeling programs, interact with tools, evaluate intermediate results, and continuously refine their outputs through NeoMCP and NeoSDK.</p>
+        </section>
+        <section class="article-section" id="agentic-architecture" aria-labelledby="architecture-heading">
+          <div class="section-heading"><span class="section-number">04</span><div><p class="eyebrow">NEOMCP + NEOSDK</p><h2 id="architecture-heading">Agentic world construction</h2></div></div>
+          <p>NeoWorld-3 is built around a hierarchical agentic architecture that enables reconstruction to scale from individual objects to complete interactive scenes. Instead of treating a scene as a monolithic generation task, NeoWorldStudio acts as a world-building agent that reasons about the overall environment, decomposes complex scenes into individual entities, assigns reconstruction objectives, and coordinates the entire reconstruction process.</p>
+          <figure class="pipeline"><div class="pipeline-step"><span class="pipeline-index">01 / ORCHESTRATE</span><h3>NeoWorldStudio</h3><p>Understand the scene, decompose entities, and coordinate reconstruction objectives.</p></div><span class="pipeline-arrow" aria-hidden="true">→</span><div class="pipeline-step"><span class="pipeline-index">02 / CONSTRUCT</span><h3>Object sub-agents</h3><p>Build geometry, reason about part relationships, and prepare interactive assets.</p></div><span class="pipeline-arrow" aria-hidden="true">→</span><div class="pipeline-step"><span class="pipeline-index">03 / EXECUTE</span><h3>NeoMCP + NeoSDK</h3><p>Connect modeling capabilities with geometric, rendering, and optimization tools.</p></div><figcaption>High-level scene reasoning guides object-level construction; object results continuously refine the world representation.</figcaption></figure>
+          <p>Each object reconstruction task is handled by an object-level sub-agent with specialized capabilities. By turning object reconstruction into an independent and reusable capability, NeoWorld-3 allows complex scenes to be composed from multiple interacting object-level reconstruction processes.</p>
+          <p>Through NeoMCP, agents can dynamically access different modeling capabilities, while NeoSDK provides the underlying geometric, rendering, and optimization tools required for construction and refinement. The result is a continuous loop between reasoning and execution.</p>
+        </section>
+        <section class="article-section" id="refinement" aria-labelledby="refinement-heading">
+          <div class="section-heading"><span class="section-number">05</span><div><p class="eyebrow">DIFFERENTIABLE REFINEMENT</p><h2 id="refinement-heading">Combining intelligence with optimization</h2></div></div>
+          <p>Vision-language models are excellent at understanding visual concepts and structural relationships, but precise geometric parameter prediction remains difficult. Even when a model understands what an object should look like, obtaining highly accurate geometry directly from numerical prediction is challenging.</p>
+          <p>NeoWorld-3 addresses this limitation by having the agent construct an initial reconstruction and then refine it through differentiable rendering. The rendered reconstruction is compared with the original observation, image similarity is used as the optimization objective, and parameters inside the generated geometric representation are improved through gradient-based refinement.</p>
+          <div class="method-details"><div><h3>Reasoning</h3><p>The vision-language model provides semantic understanding, decomposition strategies, and reconstruction programs.</p></div><div><h3>Optimization</h3><p>Differentiable rendering supplies the numerical accuracy required for high-fidelity reconstruction.</p></div></div>
+          <p>Rather than relying solely on prediction, the reconstruction process actively improves itself through visual feedback.</p>
+        </section>
+        <section class="article-section" id="simulation-ready" aria-labelledby="simulation-heading">
+          <div class="section-heading"><span class="section-number">06</span><div><p class="eyebrow">PHYSICAL VALIDITY</p><h2 id="simulation-heading">Building truly simulation-ready worlds</h2></div></div>
+          <p class="lead">For embodied intelligence, reconstruction quality is ultimately measured by interaction.</p>
+          <p>A robot does not simply observe an object. It grasps it, moves it, collides with it, and changes its state. Small geometric errors can therefore lead to significant failures during simulation.</p>
+          <p>NeoWorld-3 introduces dedicated geometry validation tools to ensure reconstructed worlds are physically reliable. A key component is the watertight geometry pipeline. Watertightness is a foundation for reliable physical interaction: without it, collision detection and penetration checking become unreliable.</p>
+          <p>NeoWorld-3 achieves watertight reconstruction by removing self-intersecting regions and smoothing the connections between object parts. After geometry validation, the system can reason about parts, establish joint relationships, evaluate motion ranges, and repair invalid configurations before deployment into simulation environments.</p>
+          <p>These worlds can then be deployed into physical simulators for physics-based validation and agent training, creating a feedback loop where simulation insights further improve future reconstruction.</p>
         </section>
         <section class="scene-demo article-section" id="scene-demo" aria-labelledby="scene-demo-heading">
-          <div class="section-heading"><span class="section-number">03</span><div><p class="eyebrow">SCENE RECONSTRUCTION</p><h2 id="scene-demo-heading">Capture and reconstruction</h2></div></div>
+          <div class="section-heading"><span class="section-number">07</span><div><p class="eyebrow">SCENE RECONSTRUCTION</p><h2 id="scene-demo-heading">From observations to a reconstructed world</h2></div></div>
           <p class="section-intro">This NeoWorld Studio example compares an original capture with its reconstructed Blender scene.</p>
           <figure class="scene-video-card"><div class="scene-video-bar"><span>NEOWORLD STUDIO / SCENE 01</span><a href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">View Studio ↗</a></div><video id="scene-video" controls muted loop playsinline preload="metadata" poster="./assets/studio/posters/scene-01.jpg" aria-label="NeoWorld Studio: original capture on the left and reconstructed Blender scene on the right"><source src="./assets/studio/videos/scene-01.mp4" type="video/mp4">Your browser does not support embedded video. <a href="./assets/studio/videos/scene-01.mp4">Open the video</a>.</video><p class="scene-video-error" hidden role="status">Unable to load this video. <a href="./assets/studio/videos/scene-01.mp4" target="_blank" rel="noopener">Open video file ↗</a></p><figcaption><span>Left: original capture</span><span>Right: reconstructed scene</span></figcaption></figure>
         </section>
   <section class="articulation-section" id="interactive" aria-labelledby="interactive-heading">
-    <div class="section-heading"><span class="section-number">04</span><div><p class="eyebrow">ARTICULATED ASSETS</p><h2 id="interactive-heading">Object articulation</h2></div></div>
+    <div class="section-heading"><span class="section-number">08</span><div><p class="eyebrow">ARTICULATED ASSETS</p><h2 id="interactive-heading">Object articulation</h2></div></div>
     <p class="section-intro">Inspect part hierarchies and joint limits in five articulated objects. Select an object, then adjust its joints using the controls below.</p>
     <div class="object-picker" aria-label="Choose a demo object">
       <button data-object="10449" aria-pressed="true"><span>01</span> Scissors <small>1 JOINT</small></button>
@@ -84,31 +118,21 @@
         <div class="joint-note">This viewer demonstrates URDF kinematics with normalized dimensions; it does not run a physics simulation.</div>
       </aside>
     </div>
-    <p class="articulation-caption"><span>Revolute joints: degrees · Prismatic joints: normalized scene units</span><a href="https://neoworldproject.github.io/neoworld-pro-website/#interactive" target="_blank" rel="noopener">NeoWorld-Pro research ↗</a></p>
+    <p class="articulation-caption"><span>Revolute joints: degrees · Prismatic joints: normalized scene units</span><span>Interactive kinematic demonstration</span></p>
   </section>
-        <section class="article-section" id="benchmark" aria-labelledby="benchmark-heading">
-          <div class="section-heading"><span class="section-number">05</span><div><p class="eyebrow">EVALUATION</p><h2 id="benchmark-heading">Dataset and benchmark</h2></div></div>
-          <p>NeoWorld-Pro is evaluated on PartNet-Mobility and a synthetic multi-object scene benchmark. Tasks cover placement, assembly, articulation, and interaction with task-relevant affordances.</p>
-          <div class="benchmark-stats"><div><strong>90</strong><span>Articulated categories</span></div><div><strong>30</strong><span>USD-format scenes</span></div><div><strong>84</strong><span>Manipulation tasks</span></div><div><strong>92.85<small>%</small></strong><span>Task success rate</span></div></div>
-          <p class="result-source">Results reported for NeoWorld-Pro. <a href="https://neoworldproject.github.io/neoworld-pro-website/#benchmark" target="_blank" rel="noopener">See the original evaluation ↗</a></p>
-        </section>
-        <section class="article-section" id="bibtex" aria-labelledby="citation-heading">
-          <div class="section-heading"><span class="section-number">06</span><div><p class="eyebrow">REFERENCE</p><h2 id="citation-heading">Citation</h2></div></div>
-          <p>For the research summarized on this page, cite NeoWorld-Pro.</p>
-          <pre class="bibtex"><code>@misc{he2026NeoWorld-Pro,
-  title  = {NeoWorld-Pro: Programming Interactive Scenes from
-            Monocular Images for Embodied Simulation},
-  author = {He, Yumeng and Song, Yichen and Yang, Xiaotian and
-            Zhang, Weijia and Zhou, Zanwei and Gong, Junru and
-            Yang, Xiaokang and Wang, Yunbo},
-  year   = {2026},
-  note   = {Project page}
-}</code></pre>
+        <section class="article-section" id="outlook" aria-labelledby="outlook-heading">
+          <div class="section-heading"><span class="section-number">09</span><div><p class="eyebrow">LOOKING AHEAD</p><h2 id="outlook-heading">A bridge between reality and simulation</h2></div></div>
+          <p>The history of artificial intelligence has repeatedly shown that new capabilities emerge when models gain the ability to reason, use tools, and interact with their environment. Large language models became powerful not only because they generated text, but because they learned to use tools, write programs, and complete complex workflows.</p>
+          <p>We believe 3D reconstruction is undergoing a similar transition. Its future will be defined by intelligent agents that can understand the world, construct representations, invoke tools, verify results, and continuously improve. Coding-agent based reconstruction transforms reconstruction from a static generation task into an interactive process of reasoning, construction, verification, and refinement.</p>
+          <p>As foundation models continue to improve, NeoWorld-3 aims to scale from individual objects to increasingly complex environments, eventually enabling general-purpose reconstruction of diverse real-world scenarios. It is designed around a larger vision: creating a complete bridge between physical observations, interactive world reconstruction, simulation learning, and real-world deployment.</p>
+          <p>The reconstructed world is not an endpoint, but a scalable training environment where embodied agents can acquire skills through interaction. Once interactive worlds can be automatically reconstructed from real observations, they can support large-scale simulation-based learning, allowing agents to explore environments, practice behaviors, receive physical feedback, and transfer learned skills back into reality.</p>
+          <p>This creates a continuous connection between the real world and simulation: real observations provide the foundation for reconstruction; reconstructed worlds provide scalable environments for learning; and learned behaviors improve future interaction with the physical world.</p>
+          <blockquote class="article-quote final-vision">Our long-term vision is to build the foundation for the next generation of embodied intelligence: A world where AI systems can not only perceive and understand, but also interact with and learn within it.</blockquote>
         </section>
       </article>
     </div>
   </main>
-  <footer class="site-footer"><a class="footer-brand" href="#top">NeoWorld</a><div><a href="https://arxiv.org/abs/2608.24212v1" target="_blank" rel="noopener">Paper ↗</a><a href="https://neoworldproject.github.io/neoworld-pro-website/" target="_blank" rel="noopener">NeoWorld-Pro ↗</a><a href="#top">Back to top ↑</a></div></footer>
+  <footer class="site-footer"><a class="footer-brand" href="#top">NeoWorld-3</a><div><a href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">NeoWorld Studio ↗</a><a href="https://github.com/mulan2022/NeoWorld" target="_blank" rel="noopener">Source ↗</a><a href="#top">Back to top ↑</a></div></footer>
   <noscript><p class="no-script">Enable JavaScript to use the interactive 3D object viewer.</p></noscript>
 </body>
 </html>

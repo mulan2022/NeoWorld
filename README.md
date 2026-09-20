@@ -1,6 +1,6 @@
 # NeoWorld
 
-Technical research website, with temporary research content attributed to [NeoWorld-Pro](https://neoworldproject.github.io/neoworld-pro-website/).
+Official NeoWorld-3 research blog: **Building Interactive Worlds for Embodied Intelligence**.
 
 Live site: https://mulan2022.github.io/NeoWorld/
 
@@ -18,4 +18,4 @@ The generated site uses relative URLs so it works under `/NeoWorld/`. Serve `sit
 
 ## Attribution
 
-Research title, authors, benchmark results, and citation come from the NeoWorld-Pro project page. The Scene 01 coffee-area GLB, comparison video, and poster originate from [NeoWorld Studio](https://neoworldproject.github.io/Studio/). The URDF viewer demonstrates kinematics, without a physics solver. Three.js and Anime.js licenses are retained under `preview/vendor/` and copied into the published bundle.
+The research article is maintained in `Neoworld-3_blog.md` and presented in `preview/index.html`. The Scene 01 coffee-area GLB, comparison video, and poster originate from [NeoWorld Studio](https://neoworldproject.github.io/Studio/). The URDF viewer demonstrates kinematics, without a physics solver. Three.js and Anime.js licenses are retained under `preview/vendor/` and copied into the published bundle.
