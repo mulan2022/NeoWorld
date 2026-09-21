@@ -172,7 +172,7 @@
     root.position.sub(center);
     const extent = Math.max(size.x, size.y, size.z);
     for (const joint of joints.values()) {
-      const arrow = new T.ArrowHelper(joint.axis, new T.Vector3(), extent * .35, 0xb8f34a, extent * .055, extent * .035);
+      const arrow = new T.ArrowHelper(joint.axis, new T.Vector3(), extent * .35, accent(), extent * .055, extent * .035);
       arrow.visible = false; arrow.line.material.depthTest = false; arrow.cone.material.depthTest = false;
       arrow.line.renderOrder = arrow.cone.renderOrder = 10; joint.origin.add(arrow); joint.arrow = arrow;
     }
@@ -269,7 +269,7 @@
   }
   function setup() {
     if (renderer) return;
-    renderer = new T.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)); renderer.setClearColor(0x161616);
+    renderer = new T.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)); renderer.setClearColor(getComputedStyle(workspace).getPropertyValue('--viewer-bg').trim() || '#161616');
     renderer.outputEncoding = T.sRGBEncoding; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
     stage.append(renderer.domElement); scene = new T.Scene();
     camera = new T.PerspectiveCamera(38, 1, .001, 100);

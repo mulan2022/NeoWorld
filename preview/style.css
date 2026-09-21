@@ -1,6 +1,6 @@
 @import url("viewer.css?v=typography-20");
 @font-face{font-family:"Fusion Pixel";src:url("./assets/fusion-pixel-latin-subset.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-:root{--bg:#161616;--accent:#b8f34a;--text:#eeeeeb;--muted:#aaa9a5;--section:#101010;--line:#ffffff1c;color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif}
+:root{--bg:#161616;--accent:#b8f34a;--text:#eeeeeb;--muted:#aaa9a5;--section:#101010;--line:#ffffff1c;--hero-wire:#8b9875;--viewer-bg:#161616;color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--section);color:var(--text)}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{color:inherit;cursor:pointer}a,button{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:5px}a:hover{color:var(--accent)}p{font-size:17px;line-height:1.82;color:var(--muted)}.skip-link{position:fixed;top:-100px;left:20px;z-index:10;background:var(--accent);color:#101010;padding:12px}.skip-link:focus{top:15px}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:25px max(5vw,calc((100vw - 1320px)/2));gap:25px;background:var(--bg);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:600;letter-spacing:-.8px}.brand-mark{width:38px;height:38px;flex-shrink:0;background:#050505;border-radius:9px;padding:4px}.brand-dot{font-size:10px;vertical-align:top;margin-left:4px;color:var(--accent)}.nav nav{display:flex;align-items:center;gap:30px;font-size:12px}.nav nav span{color:var(--accent);margin-left:6px}.studio-link{border-left:1px solid var(--line);padding-left:28px}
 .hero{position:relative;min-height:610px;overflow:hidden;background:var(--bg);border-bottom:1px solid var(--line)}#world{position:absolute;inset:0 0 0 38%;opacity:.78}.veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#161616 30%,#161616ed 42%,#16161640 72%,transparent)}.cover{position:relative;z-index:1;max-width:1320px;margin:auto;padding:70px 0 60px;width:90%}.eyebrow{font:11px "Fusion Pixel",Consolas,monospace;letter-spacing:1.5px;color:var(--accent);margin:0 0 12px}.cover>.eyebrow{font-size:12px;margin-bottom:27px}h1{font-size:clamp(38px,4.35vw,66px);line-height:1.1;letter-spacing:-.045em;font-weight:500;margin:0 0 17px;max-width:800px}.title-line{display:block}.period{color:var(--accent)}.cover-subtitle{font-size:20px;color:#d3d3cf;margin:0 0 22px;line-height:1.5}.cover-summary{max-width:540px;font-size:17px;margin:0 0 28px}.project-links{display:flex;gap:23px;align-items:center;font-size:12px}.project-links a{display:inline-flex;align-items:center;gap:16px}.primary-link{border:1px solid var(--accent);background:var(--accent);color:#111;padding:13px 18px;border-radius:3px}.primary-link:hover{background:#cef984;color:#111}.project-links a:not(.primary-link){padding:13px 0;border-bottom:1px solid #ffffff35}.project-links span{font-size:16px}.content-source{font-size:11px;margin:24px 0 0;color:#999}.content-source a{color:#c2c2bb;border-bottom:1px solid #ffffff30}
@@ -67,3 +67,40 @@ html.theme-light .articulation-caption{color:#687064}
 html.theme-light .site-footer{border-color:#d8ddd3;color:#646a61}
 html.theme-light .site-footer .footer-brand{color:#161916}
 html.theme-light .site-footer a:hover{color:#568900}
+
+/* Third review palette: deep ocean slate with a restrained electric-cyan signal color. */
+html.theme-ocean{--bg:#0b1420;--section:#0d1824;--accent:#59d8e6;--text:#edf6f8;--muted:#a7b8c0;--line:#9ed7df24;--hero-wire:#547d8d;--viewer-bg:#08131d;color-scheme:dark}
+html.theme-ocean .veil{background:linear-gradient(90deg,#0b1420 30%,#0b1420ed 43%,#0b142052 74%,transparent)}
+html.theme-ocean .brand-mark{filter:hue-rotate(105deg) saturate(.9) brightness(1.08)}
+html.theme-ocean .article-toc p{color:#6f8994}
+html.theme-ocean .article-toc a{color:#78909a}
+html.theme-ocean .section-number{color:#7e9ba6}
+html.theme-ocean .article-body .lead{color:#dcecef}
+html.theme-ocean .article-section>p em{color:#d7e9ed}
+html.theme-ocean .article-quote{background:#122534;color:#e8f8fa;border-left-color:var(--accent)}
+html.theme-ocean .architecture-figure{background:#0e1c28;border-color:#294553;box-shadow:0 20px 60px #02080d66}
+html.theme-ocean .architecture-figure-head{border-color:#294553;color:#78939d}
+html.theme-ocean .architecture-figure-head strong{color:#c5dce1}
+html.theme-ocean .architecture-boundary{fill:#0a1722;stroke:#41616e}
+html.theme-ocean .architecture-tag{fill:#59d8e614;stroke:#59d8e688}
+html.theme-ocean .architecture-kicker{fill:#94acb5}
+html.theme-ocean .architecture-node{fill:#10232f;stroke:#3c5d69}
+html.theme-ocean .architecture-node-primary{fill:#102934;stroke:var(--accent)}
+html.theme-ocean .architecture-service{fill:#112530;stroke:#476874}
+html.theme-ocean .architecture-node-title,html.theme-ocean .architecture-service-title{fill:#edf7f9}
+html.theme-ocean .architecture-node-copy{fill:#9eb6be}
+html.theme-ocean .architecture-edge-label{fill:#809ba5}
+html.theme-ocean .architecture-figure figcaption{border-color:#294553;color:#8da6af}
+html.theme-ocean .architecture-figure figcaption span:last-child{color:#c0d5da}
+html.theme-ocean .scene-video-card{background:#09131d;border-color:#294553;box-shadow:0 18px 50px #02080d55}
+html.theme-ocean .object-picker button[aria-pressed=true]{background:#59d8e612}
+html.theme-ocean .object-workspace{--accent:#59d8e6;--text:#edf6f8;--muted:#a7b8c0;--line:#9ed7df24;--viewer-bg:#08131d;color:var(--text);border:1px solid #294553;box-shadow:0 18px 50px #02080d55}
+html.theme-ocean .object-stage{background:var(--viewer-bg)}
+html.theme-ocean .joint-sidebar{background:#0b1722}
+html.theme-ocean .object-view-tools button{background:#0b1722e6;border-color:#82bdca33;color:#c9dade}
+html.theme-ocean .joint-value-row input[type=number],html.theme-ocean .part-picker select{background:#10212d;border-color:#82bdca38;color:#edf6f8}
+html.theme-ocean .object-loading{background:var(--viewer-bg)}
+html.theme-ocean .joint-note{color:#8097a0}
+html.theme-ocean .site-footer{color:#8097a0}
+html.theme-ocean .site-footer .footer-brand{color:#dcecef}
+html.theme-ocean .site-footer a:hover{color:var(--accent)}

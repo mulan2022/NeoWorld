@@ -1,5 +1,5 @@
 (() => {
-  const theme = { background: 0x161616, accent: 0xb8f34a, secondary: 0x8c8c8c };
+  const selectedTheme = document.documentElement.classList.contains('theme-ocean') ? 'ocean' : document.documentElement.classList.contains('theme-light') ? 'light' : 'lime';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = reduced.matches;
   let effect;
@@ -35,5 +35,5 @@
   updateMotion();
   window.addEventListener('pagehide', () => effect?.destroy(), { once: true });
   // Exposed solely for this visual study's browser verification.
-  window.motionStudy = { get effect() { return effect; }, get theme() { return 'lime'; }, get paused() { return paused; }, get sceneHero() { return effect; } };
+  window.motionStudy = { get effect() { return effect; }, get theme() { return selectedTheme; }, get paused() { return paused; }, get sceneHero() { return effect; } };
 })();

@@ -5,7 +5,11 @@ window.createSceneHero = function createSceneHero() {
   const hero = document.querySelector('.hero');
   const renderer = new T.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
-  renderer.setClearColor(0x161616);
+  const rootStyle = getComputedStyle(document.documentElement);
+  const background = rootStyle.getPropertyValue('--bg').trim() || '#161616';
+  const accent = rootStyle.getPropertyValue('--accent').trim() || '#b8f34a';
+  const secondary = rootStyle.getPropertyValue('--hero-wire').trim() || '#8b9875';
+  renderer.setClearColor(background);
   host.append(renderer.domElement);
   const scene = new T.Scene();
   const camera = new T.OrthographicCamera(-6, 6, 5, -5, .1, 80);
@@ -17,8 +21,8 @@ window.createSceneHero = function createSceneHero() {
   const target = new T.Vector3();
   let bounds, focusBounds, ready = false, disposed = false, paused = false, visible = true, dirty = true;
   let width = 1, height = 1, baseHeight = 10;
-  const edgeMaterial = new T.LineBasicMaterial({ color: 0xb8f34a, transparent: true, opacity: .8 });
-  const structureMaterial = new T.LineBasicMaterial({ color: 0x8b9875, transparent: true, opacity: .42 });
+  const edgeMaterial = new T.LineBasicMaterial({ color: accent, transparent: true, opacity: .8 });
+  const structureMaterial = new T.LineBasicMaterial({ color: secondary, transparent: true, opacity: .42 });
   function pose() {
     // Stay on the open side of the reconstruction, above the furniture.
     const azimuth = T.MathUtils.degToRad(4 + eased.x * 12);

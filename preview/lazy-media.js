@@ -20,7 +20,7 @@
     if (!viewerPromise) {
       viewerPromise = script('vendor/OBJLoader.js')
         .then(() => script('vendor/OrbitControls.js'))
-        .then(() => script('articulation.js?v=geometry-19'))
+        .then(() => script('articulation.js?v=palette-21'))
         .catch(error => {
           console.error('Object viewer:', error);
           const message = document.querySelector('#object-loading p');
