@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="asset-mode" content="source">
   <meta name="theme-color" content="#161616">
   <meta name="description" content="NeoWorld-3 is an agentic framework for reconstructing simulation-ready interactive worlds from visual observations.">
   <meta property="og:title" content="NeoWorld-3: Building Interactive Worlds for Embodied Intelligence">
   <meta property="og:description" content="Coding-agent based reconstruction for simulation-ready interactive worlds.">
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
-  <link rel="stylesheet" href="style.css?v=urdf10-15">
+  <link rel="stylesheet" href="style.css?v=performance-16">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
-  <script defer src="vendor/DRACOLoader.js"></script>
-  <script defer src="vendor/GLTFLoader.js"></script>
-  <script defer src="scene-hero.js?v=pages-13"></script>
+  <script defer src="scene-hero.js?v=wireframe-16"></script>
   <script defer src="app.js?v=scene1-10"></script>
-  <script defer src="vendor/OBJLoader.js"></script>
-  <script defer src="vendor/OrbitControls.js"></script>
-  <script defer src="articulation.js?v=urdf10-15"></script>
-  <script defer src="scene-video.js?v=autoplay-9"></script>
+  <script defer src="lazy-media.js?v=performance-16"></script>
+  <script defer src="scene-video.js?v=lazy-16"></script>
 </head>
 <body>
   <a class="skip-link" href="#research">Skip to article</a>
@@ -90,7 +87,7 @@
         <section class="scene-demo article-section" id="scene-demo" aria-labelledby="scene-demo-heading">
           <div class="section-heading"><span class="section-number">07</span><div><p class="eyebrow">SCENE RECONSTRUCTION</p><h2 id="scene-demo-heading">From observations to a reconstructed world</h2></div></div>
           <p class="section-intro">This NeoWorld Studio example compares an original capture with its reconstructed Blender scene.</p>
-          <figure class="scene-video-card"><div class="scene-video-bar"><span>NEOWORLD STUDIO / SCENE 01</span><a href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">View Studio ↗</a></div><video id="scene-video" controls muted loop playsinline preload="metadata" poster="./assets/studio/posters/scene-01.jpg" aria-label="NeoWorld Studio: original capture on the left and reconstructed Blender scene on the right"><source src="./assets/studio/videos/scene-01.mp4" type="video/mp4">Your browser does not support embedded video. <a href="./assets/studio/videos/scene-01.mp4">Open the video</a>.</video><p class="scene-video-error" hidden role="status">Unable to load this video. <a href="./assets/studio/videos/scene-01.mp4" target="_blank" rel="noopener">Open video file ↗</a></p><figcaption><span>Left: original capture</span><span>Right: reconstructed scene</span></figcaption></figure>
+          <figure class="scene-video-card"><div class="scene-video-bar"><span>NEOWORLD STUDIO / SCENE 01</span><a href="https://neoworldproject.github.io/Studio/?lang=en" target="_blank" rel="noopener">View Studio ↗</a></div><video id="scene-video" controls muted loop playsinline preload="none" data-poster="./assets/studio/posters/scene-01.jpg" aria-label="NeoWorld Studio: original capture on the left and reconstructed Blender scene on the right"><source data-src="./assets/studio/videos/scene-01.mp4" type="video/mp4">Your browser does not support embedded video. <a href="./assets/studio/videos/scene-01.mp4">Open the video</a>.</video><p class="scene-video-error" hidden role="status">Unable to load this video. <a href="./assets/studio/videos/scene-01.mp4" target="_blank" rel="noopener">Open video file ↗</a></p><figcaption><span>Left: original capture</span><span>Right: reconstructed scene</span></figcaption></figure>
         </section>
   <section class="articulation-section" id="interactive" aria-labelledby="interactive-heading">
     <div class="section-heading"><span class="section-number">08</span><div><p class="eyebrow">ARTICULATED ASSETS</p><h2 id="interactive-heading">Object articulation</h2></div></div>

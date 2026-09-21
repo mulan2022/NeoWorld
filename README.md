@@ -11,10 +11,12 @@ Push changes to `main`. `.github/workflows/pages.yml` packages the source and pu
 ## Source
 
 - `preview/`: HTML, styles, and JavaScript. Homepage camera and framing are in `preview/scene-hero.js`.
-- `assets/`: Scene 01 model and video, pixel font, and ten articulated URDF objects.
+- `assets/`: Scene 01 source model, optimized hero wireframe, video, subset pixel font, and ten articulated URDF objects.
 - `scripts/build-pages.py`: dependency-free packaging script. Run `python scripts/build-pages.py` to build `site/` locally.
 
 The generated site uses relative URLs so it works under `/NeoWorld/`. Serve `site/` through an HTTP server to preview; opening `index.html` as a local file cannot load the 3D assets.
+
+The homepage loads a prebaked line-only scene. The video and articulation viewer start loading near their sections; each published URDF object is delivered as one compressed runtime bundle, and large PNG materials use WebP runtime copies.
 
 ## Attribution
 

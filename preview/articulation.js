@@ -7,6 +7,8 @@
   const panel = document.querySelector('#joint-controls');
   const loading = document.querySelector('#object-loading');
   const workspace = document.querySelector('.object-workspace');
+  const assetMode = document.querySelector('meta[name="asset-mode"]')?.content || 'source';
+  const compressedAssets = assetMode === 'gzip' || assetMode === 'bundle';
   const playButton = document.querySelector('#object-play');
   const resetButton = document.querySelector('#object-reset');
   const linkSelect = document.querySelector('#object-links');
@@ -37,17 +39,37 @@
     const rpy = vector(origin?.getAttribute('rpy'));
     group.quaternion.setFromEuler(new T.Euler(...rpy, 'ZYX'));
   }
-  async function text(url) {
+  const assetKey = (url, base) => decodeURIComponent(url.pathname.slice(base.pathname.length));
+  async function loadBundle(id, base) {
+    if (assetMode !== 'bundle' || !('DecompressionStream' in window)) return null;
+    const response = await fetch(new URL(`${id}.bundle.gz`, base));
+    if (!response.ok) return null;
+    const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
+    return JSON.parse(await new Response(stream).text());
+  }
+  async function text(url, assets, base) {
+    const bundled = assets?.text?.[assetKey(url, base)];
+    if (bundled !== undefined) return bundled;
+    if (compressedAssets && url.pathname.endsWith('.obj') && 'DecompressionStream' in window) {
+      const compressed = await fetch(`${url.href}.gz`);
+      if (compressed.ok) {
+        const stream = compressed.body.pipeThrough(new DecompressionStream('gzip'));
+        return new Response(stream).text();
+      }
+    }
     const response = await fetch(url);
     if (!response.ok) throw new Error(`Could not load ${url} (${response.status})`);
     return response.text();
   }
   const textureCache = new Map();
-  async function texture(url) {
+  async function texture(url, assets, base) {
     const key = url.href;
     if (!textureCache.has(key)) {
+      const encoded = assets?.binary?.[assetKey(url, base)];
+      const extension = url.pathname.split('.').pop().toLowerCase();
+      const source = encoded ? `data:image/${extension};base64,${encoded}` : key;
       textureCache.set(key, new Promise((resolve, reject) => {
-        new T.TextureLoader().load(key, map => {
+        new T.TextureLoader().load(source, map => {
           map.encoding = T.sRGBEncoding;
           map.anisotropy = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
           dirty = true; resolve(map);
@@ -56,7 +78,7 @@
     }
     return textureCache.get(key);
   }
-  async function parseMaterials(mtl, url) {
+  async function parseMaterials(mtl, url, assets, base) {
     const materials = new Map(); let record;
     for (const line of mtl.split(/\r?\n/)) {
       const words = line.trim().split(/\s+/);
@@ -69,21 +91,21 @@
       if (words[0] === 'map_Ke') record.emissiveMapUrl = new URL(words.slice(1).join(' '), url);
     }
     await Promise.all([...materials.values()].map(async record => {
-      if (record.mapUrl) record.map = await texture(record.mapUrl);
-      if (record.emissiveMapUrl) record.emissiveMap = await texture(record.emissiveMapUrl);
+      if (record.mapUrl) record.map = await texture(record.mapUrl, assets, base);
+      if (record.emissiveMapUrl) record.emissiveMap = await texture(record.emissiveMapUrl, assets, base);
     }));
     return materials;
   }
-  async function visualMesh(element, base, linkName) {
+  async function visualMesh(element, base, linkName, assets) {
     const mesh = element.querySelector('geometry > mesh');
     if (!mesh) throw new Error('This asset requires an OBJ visual mesh.');
     const url = new URL(mesh.getAttribute('filename'), base);
-    const source = await text(url);
+    const source = await text(url, assets, base);
     const materials = new Map();
     for (const match of source.matchAll(/^mtllib\s+(.+)$/gm)) {
       const mtlUrl = new URL(match[1].trim(), url);
-      const mtl = await text(mtlUrl);
-      for (const [name, record] of await parseMaterials(mtl, mtlUrl)) materials.set(name, record);
+      const mtl = await text(mtlUrl, assets, base);
+      for (const [name, record] of await parseMaterials(mtl, mtlUrl, assets, base)) materials.set(name, record);
     }
     const obj = new T.OBJLoader().parse(source);
     const rgba = vector(element.querySelector('material > color')?.getAttribute('rgba'), [.66, .66, .66, 1]);
@@ -116,7 +138,8 @@
   }
   async function build(id) {
     const base = new URL(`./assets/batch5_collision_urdf_textured/${id}/`, location.href);
-    const source = await text(new URL(`${id}.urdf`, base));
+    const assets = await loadBundle(id, base);
+    const source = await text(new URL(`${id}.urdf`, base), assets, base);
     const xml = new DOMParser().parseFromString(source, 'application/xml');
     if (xml.querySelector('parsererror')) throw new Error('Could not parse the URDF XML.');
     const robot = xml.querySelector('robot'); if (!robot) throw new Error('Missing robot node.');
@@ -126,7 +149,7 @@
     for (const node of robot.querySelectorAll(':scope > link')) {
       const group = new T.Group(); const name = node.getAttribute('name');
       group.name = name; group.userData.linkName = name; links.set(name, group);
-      for (const visual of node.querySelectorAll(':scope > visual')) jobs.push(visualMesh(visual, base, name).then(mesh => group.add(mesh)));
+      for (const visual of node.querySelectorAll(':scope > visual')) jobs.push(visualMesh(visual, base, name, assets).then(mesh => group.add(mesh)));
     }
     for (const node of robot.querySelectorAll(':scope > joint')) {
       const name = node.getAttribute('name'), type = node.getAttribute('type');
@@ -246,7 +269,7 @@
   }
   function setup() {
     if (renderer) return;
-    renderer = new T.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setClearColor(0x161616);
+    renderer = new T.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)); renderer.setClearColor(0x161616);
     renderer.outputEncoding = T.sRGBEncoding; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
     stage.append(renderer.domElement); scene = new T.Scene();
     camera = new T.PerspectiveCamera(38, 1, .001, 100);
