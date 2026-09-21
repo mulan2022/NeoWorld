@@ -4,6 +4,8 @@ Official NeoWorld-3 research blog: **Building Interactive Worlds for Embodied In
 
 Live site: https://mulan2022.github.io/NeoWorld/
 
+Light article palette for review: https://mulan2022.github.io/NeoWorld/?theme=light
+
 ## Publish
 
 Push changes to `main`. `.github/workflows/pages.yml` packages the source and publishes it using GitHub Pages. Repository Settings → Pages → Source is **GitHub Actions**.
