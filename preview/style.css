@@ -16,6 +16,10 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.loading-orbit{animation:none}}
 @media(min-width:801px){.object-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}.object-picker button:nth-child(5){border-right:0}.object-picker button:nth-child(n+6){border-top:1px solid var(--line)}}
 
+.architecture-figure{margin:30px 0 32px;border:1px solid var(--line);background:#141414;border-radius:3px;overflow:hidden;box-shadow:0 20px 60px #0003}.architecture-figure-head{display:flex;justify-content:space-between;gap:20px;padding:15px 19px;border-bottom:1px solid var(--line);font:9px Consolas,monospace;letter-spacing:.8px;color:#858980}.architecture-figure-head strong{font-weight:400;color:#c8ccc2}.architecture-canvas{overflow-x:auto;scrollbar-width:thin;scrollbar-color:#4c5147 transparent}.architecture-canvas svg{display:block;width:100%;min-width:760px;height:auto;font-family:Arial,"Microsoft YaHei",sans-serif}.architecture-boundary{fill:#111310;stroke:#555c4c;stroke-width:1.2;stroke-dasharray:4 5}.architecture-tag{fill:#b8f34a12;stroke:#b8f34a66}.architecture-tag-text{fill:var(--accent);font:9px Consolas,monospace;letter-spacing:.8px;text-anchor:middle}.architecture-kicker{fill:#aeb4a7;font:10px Consolas,monospace;letter-spacing:1px}.architecture-node{fill:#1a1c19;stroke:#596052;stroke-width:1}.architecture-node-primary{fill:#1c2119;stroke:var(--accent);stroke-width:1.4}.architecture-service{fill:#181b16;stroke:#69725f}.architecture-node-index{fill:var(--accent);font:9px Consolas,monospace;letter-spacing:.8px}.architecture-node-title{fill:#f1f2ee;font-size:20px;font-weight:500}.architecture-node-title-small{font-size:15px}.architecture-service-title{fill:#f1f2ee;font-size:25px;font-weight:500}.architecture-node-copy{fill:#9ea499;font-size:11px}.architecture-flow{fill:none;stroke:var(--accent);stroke-width:1.65;stroke-dasharray:7 9;stroke-linecap:round;vector-effect:non-scaling-stroke;animation:architecture-flow 1.05s linear infinite}.architecture-flow-delay{animation-delay:-.35s}.architecture-flow-delay-2{animation-delay:-.7s}.architecture-arrow,.architecture-pulse{fill:var(--accent)}.architecture-edge-label{fill:#868c81;font:9px Consolas,monospace;letter-spacing:.4px}.architecture-figure figcaption{display:flex;justify-content:space-between;gap:25px;padding:15px 19px;border-top:1px solid var(--line);font:10px/1.7 Consolas,monospace;color:#8f948a}.architecture-figure figcaption span:last-child{color:#bcc2b5;text-align:right}.runtime-notes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0 30px}.runtime-notes>div{background:#171717;padding:24px}.runtime-notes span{font:9px Consolas,monospace;color:var(--accent);letter-spacing:.6px}.runtime-notes h3{margin:16px 0 10px}.runtime-notes p{font-size:12px;line-height:1.75;margin:0}.runtime-notes>div:last-child h3{font-size:15px;font-family:Consolas,monospace;letter-spacing:-.03em}@keyframes architecture-flow{to{stroke-dashoffset:-32}}
+@media(max-width:800px){.architecture-figure{margin:24px 0 27px}.architecture-figure-head{padding:13px 14px}.architecture-figure-head strong{display:none}.architecture-canvas svg{min-width:720px}.architecture-figure figcaption{display:block;padding:13px 14px;font-size:9px}.architecture-figure figcaption span{display:block}.architecture-figure figcaption span:last-child{text-align:left;margin-top:5px}.runtime-notes{grid-template-columns:1fr}.runtime-notes>div{padding:20px}}
+@media(prefers-reduced-motion:reduce){.architecture-flow{animation:none;stroke-dasharray:none}.architecture-pulse{display:none}}
+
 /* Optional review palette: preserve the dark cover, then switch the article to a clean NVIDIA-inspired white field. */
 html.theme-light body{background:#f7f8f5;color:#111}
 html.theme-light .nav,html.theme-light .hero{color:#eeeeeb}
@@ -33,6 +37,22 @@ html.theme-light .pipeline-arrow{color:#76b900}
 html.theme-light .pipeline figcaption{color:#646a61}
 html.theme-light .principles{background:#fff;border-color:#cfd5ca}
 html.theme-light .principles>div{border-color:#d8ddd3}
+html.theme-light .architecture-figure{background:#fff;border-color:#cfd5ca;box-shadow:0 20px 60px #17200f12}
+html.theme-light .architecture-figure-head{border-color:#d8ddd3;color:#747a70}
+html.theme-light .architecture-figure-head strong{color:#343a31}
+html.theme-light .architecture-boundary{fill:#f4f6f1;stroke:#aeb6a8}
+html.theme-light .architecture-tag{fill:#76b90014;stroke:#76b90088}
+html.theme-light .architecture-kicker{fill:#555d52}
+html.theme-light .architecture-node{fill:#fff;stroke:#b9c1b4}
+html.theme-light .architecture-node-primary{fill:#f0f5e9;stroke:var(--accent)}
+html.theme-light .architecture-service{fill:#f1f3ee;stroke:#abb4a5}
+html.theme-light .architecture-node-title,html.theme-light .architecture-service-title{fill:#151914}
+html.theme-light .architecture-node-copy{fill:#555d52}
+html.theme-light .architecture-edge-label{fill:#687064}
+html.theme-light .architecture-figure figcaption{border-color:#d8ddd3;color:#636a60}
+html.theme-light .architecture-figure figcaption span:last-child{color:#333a31}
+html.theme-light .runtime-notes{background:#cfd5ca;border-color:#cfd5ca}
+html.theme-light .runtime-notes>div{background:#eef1ea}
 html.theme-light .method-details>div{background:#eef1ea;border-top:3px solid var(--accent);padding:23px 24px}
 html.theme-light .article-quote{background:#edf0e9;color:#171a16;border-left-color:var(--accent)}
 html.theme-light .benchmark-stats{border-color:#cfd5ca}
