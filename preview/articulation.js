@@ -42,7 +42,7 @@
   const assetKey = (url, base) => decodeURIComponent(url.pathname.slice(base.pathname.length));
   async function loadBundle(id, base) {
     if (assetMode !== 'bundle' || !('DecompressionStream' in window)) return null;
-    const response = await fetch(new URL(`${id}.bundle.gz`, base));
+    const response = await fetch(new URL(`${id}.bundle.gz?v=geometry-19`, base));
     if (!response.ok) return null;
     const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
     return JSON.parse(await new Response(stream).text());
