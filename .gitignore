@@ -34,6 +34,13 @@
 !/assets/fusion-pixel-12px-proportional-latin.ttf.woff2
 !/assets/fusion-pixel-latin-subset.woff2
 !/assets/batch5_collision_urdf_textured/
+!/assets/batch5_collision_references_image3/
+!/assets/batch5_collision_references_image3/*.png
+!/assets/reference_image_3_5ids/
+!/assets/reference_image_3_5ids/reference_image_3/
+!/assets/reference_image_3_5ids/reference_image_3/*.png
+!/assets/architecture/
+!/assets/architecture/*.gif
 !/assets/studio/
 /assets/studio/*
 !/assets/studio/scenes/
@@ -50,3 +57,5 @@
 !/assets/studio/posters/scene-01.jpg
 /scripts/*
 !/scripts/build-pages.py
+!/scripts/generate-architecture-gifs.py
+!/scripts/preview-server.py

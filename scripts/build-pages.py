@@ -8,7 +8,20 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site"
 PAGE_FILES = ["index.html", "style.css", "viewer.css", "app.js", "scene-hero.js", "articulation.js", "lazy-media.js", "scene-video.js"]
 VENDOR_FILES = ["three.min.js", "three.LICENSE", "anime.umd.min.js", "anime.LICENSE.md", "OBJLoader.js", "OrbitControls.js"]
-ASSET_FILES = ["fusion-pixel-latin-subset.woff2", "studio/scenes/scene-01/scene-wireframe.bin", "studio/videos/scene-01.mp4", "studio/posters/scene-01.jpg"]
+ASSET_FILES = [
+    "fusion-pixel-latin-subset.woff2",
+    "studio/scenes/scene-01/scene-wireframe.bin",
+    "studio/videos/scene-01.mp4",
+    "studio/posters/scene-01.jpg",
+    "architecture/observation.gif",
+    "architecture/target.gif",
+    "architecture/audit.gif",
+    "architecture/place-render.gif",
+    "architecture/fit.gif",
+    "architecture/admit.gif",
+    "architecture/retained.gif",
+    "architecture/physics.gif",
+]
 def copy(source, target):
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, target)

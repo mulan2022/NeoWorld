@@ -6,6 +6,8 @@ Live site: https://mulan2022.github.io/NeoWorld/
 
 Light article palette for review: https://mulan2022.github.io/NeoWorld/?theme=light
 
+Ocean palette for review: https://mulan2022.github.io/NeoWorld/?theme=ocean
+
 ## Publish
 
 Push changes to `main`. `.github/workflows/pages.yml` packages the source and publishes it using GitHub Pages. Repository Settings → Pages → Source is **GitHub Actions**.
@@ -14,7 +16,9 @@ Push changes to `main`. `.github/workflows/pages.yml` packages the source and pu
 
 - `preview/`: HTML, styles, and JavaScript. Homepage camera and framing are in `preview/scene-hero.js`.
 - `assets/`: Scene 01 source model, optimized hero wireframe, video, subset pixel font, and ten articulated URDF objects.
+- `assets/architecture/`: lightweight animated workflow renders generated from the reference images and URDF viewer.
 - `scripts/build-pages.py`: dependency-free packaging script. Run `python scripts/build-pages.py` to build `site/` locally.
+- `scripts/generate-architecture-gifs.py`: regenerates the workflow GIFs while `python scripts/preview-server.py` is running.
 
 The generated site uses relative URLs so it works under `/NeoWorld/`. Serve `site/` through an HTTP server to preview; opening `index.html` as a local file cannot load the 3D assets.
 

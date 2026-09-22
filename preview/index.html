@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
   <script>{const theme=new URLSearchParams(location.search).get('theme');if(theme==='light'||theme==='ocean')document.documentElement.classList.add(`theme-${theme}`);if(theme==='ocean')document.querySelector('meta[name="theme-color"]').content='#0b1420'}</script>
-  <link rel="stylesheet" href="style.css?v=palette-21">
+  <link rel="stylesheet" href="style.css?v=workflow-22">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="scene-hero.js?v=palette-21"></script>
@@ -61,52 +61,92 @@
           <div class="section-heading"><span class="section-number">04</span><div><p class="eyebrow">AGENTIC WORLD CONSTRUCTION</p><h2 id="architecture-heading">Agentic world construction with NeoMCP and NeoSDK</h2></div></div>
           <p>NeoWorld-3 is built around a hierarchical agentic architecture that enables reconstruction to scale from individual objects to complete interactive scenes. Rather than treating a scene as a monolithic generation task, NeoWorldStudio acts as a world-building agent that reasons about the overall environment, decomposes complex scenes into individual entities, assigns reconstruction objectives, and coordinates the reconstruction process.</p>
           <figure class="architecture-figure" aria-labelledby="architecture-figure-caption">
-            <div class="architecture-figure-head"><span>FIGURE 01</span><strong>NEOWORLD-3 SYSTEM ARCHITECTURE</strong></div>
+            <div class="architecture-figure-head"><span>FIGURE 01</span><strong>NEOWORLD-3 RECONSTRUCTION WORKFLOW</strong></div>
             <div class="architecture-canvas">
-              <svg viewBox="0 0 1080 660" role="img" aria-labelledby="architecture-figure-title architecture-figure-description">
-                <title id="architecture-figure-title">NeoWorldStudio subagent architecture and execution path</title>
-                <desc id="architecture-figure-description">Inside NeoWorldStudio, a scene-level agent delegates reconstruction tasks to object-level subagents. The NeoWorldStudio runtime calls NeoMCP, which then calls NeoSDK.</desc>
-                <defs><marker id="architecture-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="architecture-arrow" d="M0,0 L10,5 L0,10 Z"/></marker></defs>
-                <rect class="architecture-boundary" x="40" y="35" width="1000" height="380" rx="6"/>
-                <text class="architecture-kicker" x="72" y="72">NEOWORLDSTUDIO / MULTI-AGENT RUNTIME</text>
-                <rect class="architecture-tag" x="785" y="52" width="220" height="34" rx="17"/><text class="architecture-tag-text" x="895" y="74">SUBAGENT ORCHESTRATION</text>
+              <div class="workflow-board" role="img" aria-label="Animated NeoWorld-3 reconstruction workflow from observations and targets through Studio agents, refinement, retained assets, recursive self-improvement, and physics validation">
+                <section class="workflow-panel workflow-observation">
+                  <h3><span>◉</span> Observation</h3>
+                  <img class="workflow-media workflow-media-large" src="./assets/architecture/observation.gif" alt="Reference observations of reconstructed objects" loading="lazy">
+                  <p>Object or scene</p>
+                </section>
 
-                <rect class="architecture-node architecture-node-primary" x="350" y="105" width="380" height="100" rx="4"/>
-                <text class="architecture-node-index" x="376" y="134">SCENE LEVEL</text>
-                <text class="architecture-node-title" x="540" y="164" text-anchor="middle">Scene-level agent</text>
-                <text class="architecture-node-copy" x="540" y="187" text-anchor="middle">understands the scene · plans reconstruction</text>
+                <section class="workflow-panel workflow-target">
+                  <h3><span>⌖</span> Target</h3>
+                  <p class="workflow-label">Masks + cameras</p>
+                  <img class="workflow-media workflow-media-large" src="./assets/architecture/target.gif" alt="Animated target masks and depth views rendered from the URDF chair" loading="lazy">
+                  <p class="workflow-label">Optional depth</p>
+                </section>
 
-                <path id="delegate-left" class="architecture-flow" d="M540 205 L540 244 L220 244 L220 286" marker-end="url(#architecture-arrow)"/>
-                <path id="delegate-center" class="architecture-flow architecture-flow-delay" d="M540 205 L540 286" marker-end="url(#architecture-arrow)"/>
-                <path id="delegate-right" class="architecture-flow architecture-flow-delay-2" d="M540 205 L540 244 L860 244 L860 286" marker-end="url(#architecture-arrow)"/>
-                <text class="architecture-edge-label" x="555" y="232">delegates object reconstruction tasks</text>
+                <section class="workflow-panel workflow-harness">
+                  <h3 class="workflow-panel-title"><span>⚙</span> Studio harness</h3>
+                  <div class="workflow-modules">
+                    <article class="workflow-module workflow-agent">
+                      <h4><span>●</span> VLM agent</h4>
+                      <ul><li>Read evidence</li><li>Edit construction</li><li>Choose tools</li></ul>
+                    </article>
+                    <span class="workflow-arrow" aria-hidden="true">→</span>
+                    <article class="workflow-module">
+                      <h4><span>◆</span> NeoMCP</h4>
+                      <ul><li>Read and measure</li><li>Write and inspect</li><li>Audit and refine</li></ul>
+                    </article>
+                    <span class="workflow-arrow" aria-hidden="true">→</span>
+                    <article class="workflow-module workflow-sdk">
+                      <h4><span>⌘</span> NeoSDK</h4>
+                      <code>P = (G, θ, T)<br>parts · pose · dependencies</code>
+                      <p>Geometry, rendering and optimization tools</p>
+                    </article>
+                    <span class="workflow-arrow" aria-hidden="true">→</span>
+                    <article class="workflow-module workflow-retained">
+                      <h4><span>▣</span> Retained asset</h4>
+                      <img class="workflow-media" src="./assets/architecture/retained.gif" alt="Animated retained URDF assets including a suitcase, oven, and spray bottle" loading="lazy">
+                      <p>Native asset · visual export</p>
+                    </article>
+                  </div>
 
-                <g><rect class="architecture-node" x="100" y="286" width="240" height="92" rx="4"/><text class="architecture-node-index" x="122" y="315">OBJECT 01</text><text class="architecture-node-title architecture-node-title-small" x="220" y="342" text-anchor="middle">Object-level subagent</text><text class="architecture-node-copy" x="220" y="363" text-anchor="middle">reconstructs one entity</text></g>
-                <g><rect class="architecture-node" x="420" y="286" width="240" height="92" rx="4"/><text class="architecture-node-index" x="442" y="315">OBJECT 02</text><text class="architecture-node-title architecture-node-title-small" x="540" y="342" text-anchor="middle">Object-level subagent</text><text class="architecture-node-copy" x="540" y="363" text-anchor="middle">reconstructs one entity</text></g>
-                <g><rect class="architecture-node" x="740" y="286" width="240" height="92" rx="4"/><text class="architecture-node-index" x="762" y="315">OBJECT N</text><text class="architecture-node-title architecture-node-title-small" x="860" y="342" text-anchor="middle">Object-level subagent</text><text class="architecture-node-copy" x="860" y="363" text-anchor="middle">scales across scene entities</text></g>
+                  <div class="workflow-refinement">
+                    <h4><span>⌕</span> Refinement loop</h4>
+                    <div class="workflow-steps">
+                      <article class="workflow-step"><h5>Audit</h5><img class="workflow-media" src="./assets/architecture/audit.gif" alt="Animated wireframe audit of a folding chair URDF" loading="lazy"><p>Geometry or articulation</p></article>
+                      <span class="workflow-arrow" aria-hidden="true">→</span>
+                      <article class="workflow-step"><h5>Place and render</h5><img class="workflow-media" src="./assets/architecture/place-render.gif" alt="Animated placed render of a folding chair URDF" loading="lazy"><p>Render from target views</p></article>
+                      <span class="workflow-arrow" aria-hidden="true">→</span>
+                      <article class="workflow-step"><h5>Fit parameters</h5><img class="workflow-media" src="./assets/architecture/fit.gif" alt="Animated parameter fitting around a folding chair URDF" loading="lazy"><p>Geometry or articulation</p></article>
+                      <span class="workflow-arrow" aria-hidden="true">→</span>
+                      <article class="workflow-step"><h5>Admit</h5><img class="workflow-media" src="./assets/architecture/admit.gif" alt="Animated solid and wireframe admission comparison" loading="lazy"><p>Accept or return</p></article>
+                    </div>
+                  </div>
+                </section>
 
-                <path id="runtime-mcp" class="architecture-flow architecture-flow-delay" d="M300 415 L300 490" marker-end="url(#architecture-arrow)"/>
-                <text class="architecture-edge-label" x="317" y="458">runtime tool call</text>
-                <rect class="architecture-node architecture-service" x="160" y="490" width="280" height="112" rx="4"/>
-                <text class="architecture-node-index" x="184" y="522">TOOL INTERFACE</text>
-                <text class="architecture-service-title" x="184" y="555">NeoMCP</text>
-                <text class="architecture-node-copy" x="184" y="579">exposes modeling capabilities to Studio</text>
+                <section class="workflow-panel workflow-self">
+                  <h3><span>▥</span> Recursive self-improvement</h3>
+                  <div class="workflow-mini-flow"><span>Run traces</span><b>→</b><span>Reusable tool candidates</span><b>→</b><span>NeoMCP extension</span></div>
+                </section>
 
-                <path id="mcp-sdk" class="architecture-flow architecture-flow-delay-2" d="M440 546 L640 546" marker-end="url(#architecture-arrow)"/>
-                <text class="architecture-edge-label" x="540" y="530" text-anchor="middle">invokes</text>
-                <rect class="architecture-node architecture-service" x="640" y="490" width="280" height="112" rx="4"/>
-                <text class="architecture-node-index" x="664" y="522">FOUNDATION LAYER</text>
-                <text class="architecture-service-title" x="664" y="555">NeoSDK</text>
-                <text class="architecture-node-copy" x="664" y="579">geometry · rendering · optimization</text>
+                <section class="workflow-panel workflow-physics">
+                  <div class="workflow-physics-copy"><h3><span>⬡</span> Physics in the loop</h3><p>Explicit joints and physical properties</p><p>Motion and contacts return as a separate native candidate.</p></div>
+                  <img class="workflow-media workflow-media-physics" src="./assets/architecture/physics.gif" alt="Animated door joint motion rendered from its URDF" loading="lazy">
+                </section>
 
-                <circle class="architecture-pulse" r="5"><animateMotion dur="2.7s" begin="-.4s" repeatCount="indefinite"><mpath href="#delegate-left"/></animateMotion></circle>
-                <circle class="architecture-pulse" r="5"><animateMotion dur="2.35s" begin="-1.1s" repeatCount="indefinite"><mpath href="#delegate-center"/></animateMotion></circle>
-                <circle class="architecture-pulse" r="5"><animateMotion dur="2.7s" begin="-1.8s" repeatCount="indefinite"><mpath href="#delegate-right"/></animateMotion></circle>
-                <circle class="architecture-pulse" r="5"><animateMotion dur="2s" begin="-.8s" repeatCount="indefinite"><mpath href="#runtime-mcp"/></animateMotion></circle>
-                <circle class="architecture-pulse" r="5"><animateMotion dur="2.2s" begin="-1.5s" repeatCount="indefinite"><mpath href="#mcp-sdk"/></animateMotion></circle>
-              </svg>
+                <svg class="workflow-links" viewBox="0 0 1180 930" aria-hidden="true">
+                  <defs><marker id="workflow-arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z"/></marker></defs>
+                  <path id="flow-observe" d="M220 145H270"/>
+                  <path id="flow-bind" d="M120 250V280"/>
+                  <path id="flow-target" d="M220 450H280"/>
+                  <path id="flow-refine" d="M420 354V315H365V270"/>
+                  <path id="flow-loop" d="M1050 585V620H365V585"/>
+                  <path id="flow-retain" d="M1050 505H1145V300"/>
+                  <path id="flow-self" d="M580 770H600V625H440V600"/>
+                  <path id="flow-physics" d="M1090 300V635H920V660"/>
+                  <path id="flow-return" d="M1125 785H1160V245H1140"/>
+                  <circle r="4"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#flow-observe"/></animateMotion></circle>
+                  <circle r="4"><animateMotion dur="2.4s" begin="-.8s" repeatCount="indefinite"><mpath href="#flow-target"/></animateMotion></circle>
+                  <circle r="4"><animateMotion dur="3.8s" begin="-1.4s" repeatCount="indefinite"><mpath href="#flow-loop"/></animateMotion></circle>
+                  <circle r="4"><animateMotion dur="3.2s" begin="-.5s" repeatCount="indefinite"><mpath href="#flow-self"/></animateMotion></circle>
+                  <circle r="4"><animateMotion dur="3.4s" begin="-1.8s" repeatCount="indefinite"><mpath href="#flow-physics"/></animateMotion></circle>
+                </svg>
+              </div>
             </div>
-            <figcaption id="architecture-figure-caption"><span>NeoWorldStudio owns the scene-to-object subagent orchestration.</span><span>Execution path: NeoWorldStudio → NeoMCP → NeoSDK.</span></figcaption>
+            <figcaption id="architecture-figure-caption"><span>Live URDF renders replace schematic thumbnails throughout the workflow.</span><span>Observation → construction → refinement → physics → retained asset.</span></figcaption>
           </figure>
           <p>Each object reconstruction task is handled by a specialized object-level sub-agent. These agents understand object structures, construct geometry, reason about part relationships, and prepare assets for interaction. By making object reconstruction an independent and reusable capability, NeoWorld-3 can compose complex scenes from multiple object-level reconstruction processes.</p>
           <p>In this hierarchy, high-level scene understanding guides object-level construction, while object-level results refine the overall world representation. NeoMCP gives agents dynamic access to different modeling capabilities, while NeoSDK provides the underlying geometric, rendering, and optimization tools required for construction and refinement. Together, they connect high-level reasoning with execution across the reconstruction process.</p>
