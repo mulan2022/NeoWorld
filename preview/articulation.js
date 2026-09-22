@@ -4,6 +4,8 @@
   const T = window.THREE;
   const motionStage = document.querySelector('.object-stage');
   const stage = document.querySelector('#object-canvas');
+  const referenceImage = document.querySelector('#object-reference-image');
+  const referenceTitle = document.querySelector('#object-reference-title');
   const panel = document.querySelector('#joint-controls');
   const loading = document.querySelector('#object-loading');
   const workspace = document.querySelector('.object-workspace');
@@ -13,16 +15,16 @@
   const resetButton = document.querySelector('#object-reset');
   const linkSelect = document.querySelector('#object-links');
   const objects = {
-    '10449': { title: 'SCISSORS', label: 'Scissors', names: { scissor_pivot: 'Scissor opening' } },
-    '8994': { title: 'DOOR', label: 'Door', names: { door_hinge: 'Door opening', knob_spindle: 'Handle rotation' } },
-    '101917': { title: 'OVEN', label: 'Oven', names: { oven_door_hinge: 'Oven door' } },
-    '101463': { title: 'SPRAY BOTTLE', label: 'Spray bottle', names: { closure_turn: 'Bottle closure', head_swivel: 'Sprayer head', trigger_hinge: 'Trigger press', plunger_slide: 'Pump travel' } },
-    '103967': { title: 'GLOBE', label: 'Globe', names: { globe_spin: 'Globe rotation' } },
-    '100520': { title: 'FOLDING CHAIR', label: 'Folding chair', names: { left_link_pivot: 'Left linkage', right_link_pivot: 'Right linkage', seat_fold: 'Seat fold', rear_frame_fold: 'Rear frame' } },
-    '100842': { title: 'SUITCASE', label: 'Suitcase', names: { front_lid_hinge: 'Front lid', top_carry_handle_fold: 'Top handle', side_carry_handle_fold: 'Side handle', wheel_front_left_roll: 'Front-left wheel', wheel_front_right_roll: 'Front-right wheel', wheel_rear_left_roll: 'Rear-left wheel', wheel_rear_right_roll: 'Rear-right wheel', telescoping_handle_slide: 'Telescoping handle' } },
-    '101052': { title: 'UTILITY KNIFE', label: 'Utility knife', names: { blade_slider_translation: 'Blade extension' } },
-    '101220': { title: 'INDUSTRIAL FAN', label: 'Industrial fan', names: { joint_01: 'Fan rotor' } },
-    '101284': { title: 'SAFETY GLASSES', label: 'Safety glasses', names: { temple_left_hinge: 'Left temple', temple_right_hinge: 'Right temple' } },
+    '10449': { title: 'SCISSORS', label: 'Scissors', reference: './assets/batch5_collision_references_image3/10449_image_3.png', names: { scissor_pivot: 'Scissor opening' } },
+    '8994': { title: 'DOOR', label: 'Door', reference: './assets/batch5_collision_references_image3/8994_image_3.png', names: { door_hinge: 'Door opening', knob_spindle: 'Handle rotation' } },
+    '101917': { title: 'OVEN', label: 'Oven', reference: './assets/batch5_collision_references_image3/101917_image_3.png', names: { oven_door_hinge: 'Oven door' } },
+    '101463': { title: 'SPRAY BOTTLE', label: 'Spray bottle', reference: './assets/batch5_collision_references_image3/101463_image_3.png', names: { closure_turn: 'Bottle closure', head_swivel: 'Sprayer head', trigger_hinge: 'Trigger press', plunger_slide: 'Pump travel' } },
+    '103967': { title: 'GLOBE', label: 'Globe', reference: './assets/batch5_collision_references_image3/103967_image_3.png', names: { globe_spin: 'Globe rotation' } },
+    '100520': { title: 'FOLDING CHAIR', label: 'Folding chair', reference: './assets/reference_image_3_5ids/reference_image_3/100520.png', names: { left_link_pivot: 'Left linkage', right_link_pivot: 'Right linkage', seat_fold: 'Seat fold', rear_frame_fold: 'Rear frame' } },
+    '100842': { title: 'SUITCASE', label: 'Suitcase', reference: './assets/reference_image_3_5ids/reference_image_3/100842.png', names: { front_lid_hinge: 'Front lid', top_carry_handle_fold: 'Top handle', side_carry_handle_fold: 'Side handle', wheel_front_left_roll: 'Front-left wheel', wheel_front_right_roll: 'Front-right wheel', wheel_rear_left_roll: 'Rear-left wheel', wheel_rear_right_roll: 'Rear-right wheel', telescoping_handle_slide: 'Telescoping handle' } },
+    '101052': { title: 'UTILITY KNIFE', label: 'Utility knife', reference: './assets/reference_image_3_5ids/reference_image_3/101052.png', names: { blade_slider_translation: 'Blade extension' } },
+    '101220': { title: 'INDUSTRIAL FAN', label: 'Industrial fan', reference: './assets/reference_image_3_5ids/reference_image_3/101220.png', names: { joint_01: 'Fan rotor' } },
+    '101284': { title: 'SAFETY GLASSES', label: 'Safety glasses', reference: './assets/reference_image_3_5ids/reference_image_3/101284.png', names: { temple_left_hinge: 'Left temple', temple_right_hinge: 'Right temple' } },
   };
   let renderer, scene, camera, orbit, grid, current, inView = false, dirty = true;
   let selectedLink = '', showAxes = false, wireframe = false, playing = false, generation = 0;
@@ -42,7 +44,7 @@
   const assetKey = (url, base) => decodeURIComponent(url.pathname.slice(base.pathname.length));
   async function loadBundle(id, base) {
     if (assetMode !== 'bundle' || !('DecompressionStream' in window)) return null;
-    const response = await fetch(new URL(`${id}.bundle.gz?v=geometry-19`, base));
+    const response = await fetch(new URL(`${id}.bundle.gz?v=geometry-25`, base));
     if (!response.ok) return null;
     const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
     return JSON.parse(await new Response(stream).text());
@@ -57,7 +59,7 @@
         return new Response(stream).text();
       }
     }
-    const response = await fetch(url);
+    const response = await fetch(url, assetMode === 'source' ? { cache: 'no-store' } : undefined);
     if (!response.ok) throw new Error(`Could not load ${url} (${response.status})`);
     return response.text();
   }
@@ -311,6 +313,9 @@
     workspace.setAttribute('aria-busy', 'true'); panel.replaceChildren(); playButton.disabled = resetButton.disabled = linkSelect.disabled = true;
     document.querySelectorAll('[data-object]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.object === id)));
     document.querySelector('#object-title').textContent = `${objects[id].title} / ${id}`;
+    referenceTitle.textContent = `${objects[id].title} / ${id}`;
+    referenceImage.src = objects[id].reference;
+    referenceImage.alt = `${objects[id].label} reference image`;
     stage.setAttribute('aria-label', `Interactive 3D ${objects[id].label.toLowerCase()}: drag to orbit, scroll to zoom, and click to select a part`);
     try {
       setup();

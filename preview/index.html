@@ -11,12 +11,12 @@
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
   <script>{const theme=new URLSearchParams(location.search).get('theme');if(theme==='light'||theme==='ocean')document.documentElement.classList.add(`theme-${theme}`);if(theme==='ocean')document.querySelector('meta[name="theme-color"]').content='#0b1420'}</script>
-  <link rel="stylesheet" href="style.css?v=workflow-22">
+  <link rel="stylesheet" href="style.css?v=workflow-23">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="scene-hero.js?v=palette-21"></script>
   <script defer src="app.js?v=palette-21"></script>
-  <script defer src="lazy-media.js?v=performance-16"></script>
+  <script defer src="lazy-media.js?v=performance-18"></script>
   <script defer src="scene-video.js?v=lazy-16"></script>
 </head>
 <body>
@@ -158,7 +158,7 @@
           <p>This creates a natural division of labor between reasoning and optimization. The vision-language model provides semantic understanding, decomposition strategies, and reconstruction programs, while differentiable optimization provides the numerical precision needed for high-fidelity geometry. Rather than relying on prediction alone, NeoWorld-3 can continuously improve reconstruction through visual feedback.</p>
         </section>
         <section class="article-section" id="simulation-ready" aria-labelledby="simulation-heading">
-          <div class="section-heading"><span class="section-number">06</span><div><p class="eyebrow">PHYSICAL VALIDITY</p><h2 id="simulation-heading">Building truly simulation-ready interactive worlds</h2></div></div>
+          <div class="section-heading"><span class="section-number">06</span><div><p class="eyebrow">PHYSICAL VALIDITY</p><h2 id="simulation-heading">Physical Validity by Design: Watertight Geometry and Articulation</h2></div></div>
           <p>For embodied intelligence, reconstruction quality is ultimately measured by interaction. A robot does not simply observe an object; it grasps it, moves it, collides with it, and changes its state. Small geometric errors can therefore lead to significant failures in simulation, making physical reliability a core requirement rather than an optional refinement.</p>
           <p>NeoWorld-3 introduces dedicated geometry validation tools to address this problem, including a watertight geometry pipeline. Watertightness is not merely a mesh-quality requirement: it provides reliable boundaries for physical interaction. Without watertight geometry, collision detection and penetration checking can become unreliable. NeoWorld-3 achieves watertight reconstruction by removing self-intersecting regions and smoothing connections between object parts, producing consistent geometry and reliable interaction boundaries.</p>
           <p>Beyond geometric validity, NeoWorld-3 prepares objects for articulation and simulation. The system reasons about object parts, establishes joint relationships, evaluates motion ranges, and repairs invalid configurations before deployment into simulation environments. This allows reconstructed assets to preserve not only appearance and geometry, but also the structure and motion needed for interaction.</p>
@@ -171,7 +171,7 @@
         </section>
   <section class="articulation-section" id="interactive" aria-labelledby="interactive-heading">
     <div class="section-heading"><span class="section-number">08</span><div><p class="eyebrow">ARTICULATED ASSETS</p><h2 id="interactive-heading">Object articulation</h2></div></div>
-    <p class="section-intro">Inspect part hierarchies and joint limits in ten articulated objects. Select an object, then adjust its joints using the controls below.</p>
+    <p class="section-intro">Compare each source image with its interactive reconstruction, then inspect part hierarchies and joint limits using the controls below.</p>
     <div class="object-picker" aria-label="Choose a demo object">
       <button data-object="10449" aria-pressed="true"><span>01</span> Scissors <small>1 JOINT</small></button>
       <button data-object="8994" aria-pressed="false"><span>02</span> Door <small>2 JOINTS</small></button>
@@ -185,12 +185,18 @@
       <button data-object="101284" aria-pressed="false"><span>10</span> Safety glasses <small>2 JOINTS</small></button>
     </div>
     <div class="object-workspace" aria-busy="true">
-      <div class="object-stage">
+      <div class="object-comparison">
+        <figure class="object-reference">
+          <img id="object-reference-image" src="./assets/batch5_collision_references_image3/10449_image_3.png" alt="Scissors reference image">
+          <figcaption><span>REFERENCE / IMAGE 03</span><span id="object-reference-title">SCISSORS / 10449</span></figcaption>
+        </figure>
+        <div class="object-stage">
         <div id="object-canvas" role="img" aria-label="Interactive 3D scissors: drag to orbit, scroll to zoom, and click to select a part"></div>
-        <div class="object-stage-label"><span class="live-dot"></span><span id="object-title">SCISSORS / 10449</span></div>
+        <div class="object-stage-label"><span class="live-dot"></span><span>RECONSTRUCTION</span><span id="object-title">SCISSORS / 10449</span></div>
         <div class="object-view-tools"><button id="object-wire" aria-pressed="false">Wireframe</button><button id="object-axis" aria-pressed="false">Joint axes</button><button id="object-camera">Reset view ↗</button></div>
         <div class="object-loading" id="object-loading" role="status"><span class="loading-orbit"></span><p>Loading object…</p><button id="object-retry" hidden>Retry</button></div>
         <div class="object-stage-footer"><span>Drag to orbit · Scroll to zoom · Right-drag to pan · Click a part</span><span id="object-part">No part selected</span></div>
+        </div>
       </div>
       <aside class="joint-sidebar" aria-label="Object joint controls">
         <div class="joint-heading"><span class="eyebrow">ARTICULATION</span><h3>Joint controls</h3><p id="object-summary">Move a slider to explore its range.</p></div>

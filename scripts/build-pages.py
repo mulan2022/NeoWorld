@@ -21,6 +21,16 @@ ASSET_FILES = [
     "architecture/admit.gif",
     "architecture/retained.gif",
     "architecture/physics.gif",
+    "batch5_collision_references_image3/10449_image_3.png",
+    "batch5_collision_references_image3/8994_image_3.png",
+    "batch5_collision_references_image3/101917_image_3.png",
+    "batch5_collision_references_image3/101463_image_3.png",
+    "batch5_collision_references_image3/103967_image_3.png",
+    "reference_image_3_5ids/reference_image_3/100520.png",
+    "reference_image_3_5ids/reference_image_3/100842.png",
+    "reference_image_3_5ids/reference_image_3/101052.png",
+    "reference_image_3_5ids/reference_image_3/101220.png",
+    "reference_image_3_5ids/reference_image_3/101284.png",
 ]
 def copy(source, target):
     target.parent.mkdir(parents=True, exist_ok=True)
