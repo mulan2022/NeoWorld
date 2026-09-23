@@ -129,3 +129,7 @@ html.theme-ocean .site-footer a:hover{color:var(--accent)}
 html.theme-light .workflow-board{--wf-board:#f8faf7;--wf-panel:#f1f5ef;--wf-node:#fff;--wf-soft:#edf3f7;--wf-border:#bfd0c5;--wf-copy:#536159;color:#111}
 html.theme-light .workflow-panel{box-shadow:0 12px 30px #17200f12}html.theme-light .workflow-agent{background:#fff4e9}html.theme-light .workflow-sdk{background:#f4effc}html.theme-light .workflow-retained{background:#eef8f1}html.theme-light .workflow-module code{background:#eef1ed;color:#1b211d}
 html.theme-ocean .workflow-board{--wf-board:#09141e;--wf-panel:#0e1d28;--wf-node:#112632;--wf-soft:#0c2130;--wf-border:#315563;--wf-copy:#9db4bc}html.theme-ocean .workflow-agent{background:#d98d4212}html.theme-ocean .workflow-sdk{background:#9368dc14}html.theme-ocean .workflow-retained{background:#50a77814}
+
+/* Keep editorial callouts one step above body copy, below section headings. */
+.article-quote{font-size:clamp(18px,1.5vw,20px);line-height:1.6;letter-spacing:-.01em}
+@media(max-width:800px){.article-quote{font-size:17px}}
