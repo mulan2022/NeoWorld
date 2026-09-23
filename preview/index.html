@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
   <script>{const theme=new URLSearchParams(location.search).get('theme');if(theme==='light'||theme==='ocean')document.documentElement.classList.add(`theme-${theme}`);if(theme==='ocean')document.querySelector('meta[name="theme-color"]').content='#0b1420'}</script>
-  <link rel="stylesheet" href="style.css?v=workflow-25">
+  <link rel="stylesheet" href="style.css?v=workflow-26">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="scene-hero.js?v=palette-21"></script>
@@ -129,20 +129,30 @@
 
                 <svg class="workflow-links" viewBox="0 0 1180 930" aria-hidden="true">
                   <defs><marker id="workflow-arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z"/></marker></defs>
-                  <path id="flow-observe" d="M220 145H270"/>
-                  <path id="flow-bind" d="M120 250V280"/>
-                  <path id="flow-target" d="M220 450H280"/>
-                  <path id="flow-refine" d="M420 354V315H365V270"/>
-                  <path id="flow-loop" d="M1050 585V620H365V585"/>
-                  <path id="flow-retain" d="M1050 505H1145V300"/>
-                  <path id="flow-self" d="M580 770H600V625H440V600"/>
-                  <path id="flow-physics" d="M1090 300V635H920V660"/>
-                  <path id="flow-return" d="M1125 785H1160V245H1140"/>
-                  <circle r="4"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#flow-observe"/></animateMotion></circle>
-                  <circle r="4"><animateMotion dur="2.4s" begin="-.8s" repeatCount="indefinite"><mpath href="#flow-target"/></animateMotion></circle>
-                  <circle r="4"><animateMotion dur="3.8s" begin="-1.4s" repeatCount="indefinite"><mpath href="#flow-loop"/></animateMotion></circle>
-                  <circle r="4"><animateMotion dur="3.2s" begin="-.5s" repeatCount="indefinite"><mpath href="#flow-self"/></animateMotion></circle>
-                  <circle r="4"><animateMotion dur="3.4s" begin="-1.8s" repeatCount="indefinite"><mpath href="#flow-physics"/></animateMotion></circle>
+
+                  <path class="workflow-link" d="M228 134H246V197H271"/>
+                  <text class="workflow-link-label" x="236" y="124">evidence</text>
+
+                  <path class="workflow-link workflow-link-secondary" d="M123 250V280"/>
+                  <text class="workflow-link-label" x="135" y="270">derive target</text>
+
+                  <path class="workflow-link" d="M228 445H258V455H286"/>
+                  <text class="workflow-link-label" x="237" y="435">render target</text>
+
+                  <path class="workflow-link workflow-link-feedback" d="M466 372V308"/>
+                  <text class="workflow-link-label" x="477" y="344">feedback</text>
+
+                  <path class="workflow-link" d="M1048 372V308"/>
+                  <text class="workflow-link-label" x="1059" y="344">accept</text>
+
+                  <path class="workflow-link workflow-link-feedback" d="M1031 538V566H383V538"/>
+                  <text class="workflow-link-label workflow-link-label-center" x="707" y="579">reject · iterate</text>
+
+                  <path class="workflow-link workflow-link-bidirectional" d="M500 610V646"/>
+                  <text class="workflow-link-label" x="512" y="632">traces / new tools</text>
+
+                  <path class="workflow-link workflow-link-bidirectional" d="M1143 197H1172V628H1048V646"/>
+                  <text class="workflow-link-label workflow-link-label-end" x="1037" y="620">physics check / candidate</text>
                 </svg>
               </div>
             </div>
