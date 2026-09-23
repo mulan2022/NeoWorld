@@ -14,7 +14,7 @@ ASSET_FILES = [
     "studio/videos/scene-01.mp4",
     "studio/posters/scene-01.jpg",
     "architecture/target-mask-camera-v2.png",
-    "architecture/target-depth-v2.png",
+    "architecture/target-depth-v3-transparent.png",
     "architecture/audit.gif",
     "architecture/place-render.gif",
     "architecture/fit.gif",
