@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
   <script>{const theme=new URLSearchParams(location.search).get('theme');if(theme==='light'||theme==='ocean')document.documentElement.classList.add(`theme-${theme}`);if(theme==='ocean')document.querySelector('meta[name="theme-color"]').content='#0b1420'}</script>
-  <link rel="stylesheet" href="style.css?v=workflow-27">
+  <link rel="stylesheet" href="style.css?v=workflow-28">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="scene-hero.js?v=palette-21"></script>
@@ -65,65 +65,65 @@
             <div class="architecture-canvas">
               <div class="workflow-board" role="img" aria-label="Animated NeoWorld-3 reconstruction workflow from observations and targets through Studio agents, refinement, retained assets, recursive self-improvement, and physics validation">
                 <section class="workflow-panel workflow-observation">
-                  <h3><span>◉</span> Observation</h3>
+                  <h3><img class="workflow-icon" src="./assets/architecture/icons/camera.png" alt=""> Observation</h3>
                   <img class="workflow-media workflow-media-large" src="./assets/architecture/observation.gif" alt="Reference observations of reconstructed objects" loading="lazy">
                   <p>Object or scene</p>
                 </section>
 
                 <section class="workflow-panel workflow-target">
-                  <h3><span>⌖</span> Target</h3>
+                  <h3><img class="workflow-icon" src="./assets/architecture/icons/target.png" alt=""> Target</h3>
                   <p class="workflow-label">Masks + cameras</p>
                   <img class="workflow-media workflow-media-large" src="./assets/architecture/target.gif" alt="Animated target masks and depth views rendered from the URDF chair" loading="lazy">
                   <p class="workflow-label">Optional depth</p>
                 </section>
 
                 <section class="workflow-panel workflow-harness">
-                  <h3 class="workflow-panel-title"><span>⚙</span> Studio harness</h3>
+                  <h3 class="workflow-panel-title"><img class="workflow-icon" src="./assets/architecture/icons/gear.png" alt=""> Studio harness</h3>
                   <div class="workflow-modules">
                     <article class="workflow-module workflow-agent">
-                      <h4><span>●</span> VLM agent</h4>
+                      <h4><img class="workflow-icon" src="./assets/architecture/icons/robot.png" alt=""> VLM agent</h4>
                       <ul><li>Read evidence</li><li>Edit construction</li><li>Choose tools</li></ul>
                     </article>
                     <span class="workflow-arrow" aria-hidden="true">→</span>
                     <article class="workflow-module">
-                      <h4><span>◆</span> NeoMCP</h4>
+                      <h4><img class="workflow-icon" src="./assets/architecture/icons/wrench.png" alt=""> NeoMCP</h4>
                       <ul><li>Read and measure</li><li>Write and inspect</li><li>Audit and refine</li></ul>
                     </article>
                     <span class="workflow-arrow" aria-hidden="true">→</span>
                     <article class="workflow-module workflow-sdk">
-                      <h4><span>⌘</span> NeoSDK</h4>
+                      <h4><img class="workflow-icon" src="./assets/architecture/icons/code-document.png" alt=""> NeoSDK</h4>
                       <code>P = (G, θ, T)<br>parts · pose · dependencies</code>
                       <p>Geometry, rendering and optimization tools</p>
                     </article>
                     <span class="workflow-arrow" aria-hidden="true">→</span>
                     <article class="workflow-module workflow-retained">
-                      <h4><span>▣</span> Retained asset</h4>
+                      <h4><img class="workflow-icon" src="./assets/architecture/icons/database.png" alt=""> Retained asset</h4>
                       <img class="workflow-media" src="./assets/architecture/retained.gif" alt="Animated retained URDF assets including a suitcase, oven, and spray bottle" loading="lazy">
                       <p>Native asset · visual export</p>
                     </article>
                   </div>
 
                   <div class="workflow-refinement">
-                    <h4><span>⌕</span> Refinement loop</h4>
+                    <h4><img class="workflow-icon" src="./assets/architecture/icons/wrench.png" alt=""> Refinement loop</h4>
                     <div class="workflow-steps">
-                      <article class="workflow-step"><h5>Audit</h5><img class="workflow-media" src="./assets/architecture/audit.gif" alt="Animated wireframe audit of a folding chair URDF" loading="lazy"><p>Geometry or articulation</p></article>
+                      <article class="workflow-step"><h5><img class="workflow-icon" src="./assets/architecture/icons/magnifier.png" alt=""> Audit</h5><img class="workflow-media" src="./assets/architecture/audit.gif" alt="Animated wireframe audit of a folding chair URDF" loading="lazy"><p>Geometry or articulation</p></article>
                       <span class="workflow-arrow" aria-hidden="true">→</span>
-                      <article class="workflow-step"><h5>Place and render</h5><img class="workflow-media" src="./assets/architecture/place-render.gif" alt="Animated placed render of a folding chair URDF" loading="lazy"><p>Render from target views</p></article>
+                      <article class="workflow-step"><h5><img class="workflow-icon" src="./assets/architecture/icons/transform.png" alt=""> Place and render</h5><img class="workflow-media" src="./assets/architecture/place-render.gif" alt="Animated placed render of a folding chair URDF" loading="lazy"><p>Render from target views</p></article>
                       <span class="workflow-arrow" aria-hidden="true">→</span>
-                      <article class="workflow-step"><h5>Fit parameters</h5><img class="workflow-media" src="./assets/architecture/fit.gif" alt="Animated parameter fitting around a folding chair URDF" loading="lazy"><p>Geometry or articulation</p></article>
+                      <article class="workflow-step"><h5><img class="workflow-icon" src="./assets/architecture/icons/parameter-cube.png" alt=""> Fit parameters</h5><img class="workflow-media" src="./assets/architecture/fit.gif" alt="Animated parameter fitting around a folding chair URDF" loading="lazy"><p>Geometry or articulation</p></article>
                       <span class="workflow-arrow" aria-hidden="true">→</span>
-                      <article class="workflow-step"><h5>Admit</h5><img class="workflow-media" src="./assets/architecture/admit.gif" alt="Animated solid and wireframe admission comparison" loading="lazy"><p>Accept or return</p></article>
+                      <article class="workflow-step"><h5><img class="workflow-icon" src="./assets/architecture/icons/check.png" alt=""> Admit</h5><img class="workflow-media" src="./assets/architecture/admit.gif" alt="Animated solid and wireframe admission comparison" loading="lazy"><p>Accept or return</p></article>
                     </div>
                   </div>
                 </section>
 
                 <section class="workflow-panel workflow-self">
-                  <h3><span>▥</span> Recursive self-improvement</h3>
-                  <div class="workflow-mini-flow"><span>Run traces</span><b>→</b><span>Reusable tool candidates</span><b>→</b><span>NeoMCP extension</span></div>
+                  <h3><img class="workflow-icon" src="./assets/architecture/icons/bar-chart.png" alt=""> Recursive self-improvement</h3>
+                  <div class="workflow-mini-flow"><span><img class="workflow-icon" src="./assets/architecture/icons/checklist.png" alt="">Run traces</span><b>→</b><span><img class="workflow-icon" src="./assets/architecture/icons/layers.png" alt="">Reusable tool candidates</span><b>→</b><span><img class="workflow-icon" src="./assets/architecture/icons/puzzle.png" alt="">NeoMCP extension</span></div>
                 </section>
 
                 <section class="workflow-panel workflow-physics">
-                  <div class="workflow-physics-copy"><h3><span>⬡</span> Physics in the loop</h3><p>Explicit joints and physical properties</p><p>Motion and contacts return as a separate native candidate.</p></div>
+                  <div class="workflow-physics-copy"><h3><img class="workflow-icon" src="./assets/architecture/icons/physics-arm.png" alt=""> Physics in the loop</h3><p>Explicit joints and physical properties</p><p>Motion and contacts return as a separate native candidate.</p></div>
                   <img class="workflow-media workflow-media-physics" src="./assets/architecture/physics.gif" alt="Animated door joint motion rendered from its URDF" loading="lazy">
                 </section>
 
