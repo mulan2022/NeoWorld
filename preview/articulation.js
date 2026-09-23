@@ -4,7 +4,9 @@
   const T = window.THREE;
   const motionStage = document.querySelector('.object-stage');
   const stage = document.querySelector('#object-canvas');
+  const referenceFrame = document.querySelector('.object-reference');
   const referenceImage = document.querySelector('#object-reference-image');
+  const referenceLoading = document.querySelector('#object-reference-loading');
   const referenceTitle = document.querySelector('#object-reference-title');
   const panel = document.querySelector('#joint-controls');
   const loading = document.querySelector('#object-loading');
@@ -44,7 +46,7 @@
   const assetKey = (url, base) => decodeURIComponent(url.pathname.slice(base.pathname.length));
   async function loadBundle(id, base) {
     if (assetMode !== 'bundle' || !('DecompressionStream' in window)) return null;
-    const response = await fetch(new URL(`${id}.bundle.gz?v=geometry-25`, base));
+    const response = await fetch(new URL(`${id}.bundle.gz?v=geometry-26`, base));
     if (!response.ok) return null;
     const stream = response.body.pipeThrough(new DecompressionStream('gzip'));
     return JSON.parse(await new Response(stream).text());
@@ -64,6 +66,57 @@
     return response.text();
   }
   const textureCache = new Map();
+  const referenceCache = new Map();
+  let referencesWarmed = false;
+  function referenceAsset(id) {
+    const url = new URL(objects[id].reference, location.href).href;
+    if (!referenceCache.has(url)) {
+      const request = new Promise((resolve, reject) => {
+        const image = new Image();
+        image.decoding = 'async';
+        image.onload = async () => {
+          try { await image.decode(); } catch (_) { /* The decoded bitmap is still usable after load. */ }
+          resolve(image);
+        };
+        image.onerror = () => reject(new Error(`Could not load reference image ${url}`));
+        image.src = url;
+      }).catch(error => { referenceCache.delete(url); throw error; });
+      referenceCache.set(url, request);
+    }
+    return referenceCache.get(url);
+  }
+  function warmReferenceAssets(selected) {
+    if (referencesWarmed) return;
+    referencesWarmed = true;
+    const run = () => { for (const id of Object.keys(objects)) if (id !== selected) referenceAsset(id).catch(() => {}); };
+    if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 1500 });
+    else setTimeout(run, 350);
+  }
+  async function loadReference(id, token) {
+    const config = objects[id];
+    referenceTitle.textContent = `${config.title} / ${id}`;
+    referenceImage.alt = `${config.label} reference image`;
+    referenceImage.classList.add('is-loading');
+    referenceFrame.setAttribute('aria-busy', 'true');
+    referenceLoading.classList.remove('error');
+    referenceLoading.querySelector('p').textContent = `Loading ${config.label.toLowerCase()} reference…`;
+    referenceLoading.hidden = false;
+    try {
+      const image = await referenceAsset(id);
+      if (token !== generation) return;
+      referenceImage.src = image.src;
+      referenceImage.classList.remove('is-loading');
+      referenceLoading.hidden = true;
+      referenceFrame.setAttribute('aria-busy', 'false');
+      warmReferenceAssets(id);
+    } catch (error) {
+      if (token !== generation) return;
+      console.error('Reference image:', error);
+      referenceLoading.classList.add('error');
+      referenceLoading.querySelector('p').textContent = 'Reference image unavailable.';
+      referenceFrame.setAttribute('aria-busy', 'false');
+    }
+  }
   async function texture(url, assets, base) {
     const key = url.href;
     if (!textureCache.has(key)) {
@@ -313,9 +366,7 @@
     workspace.setAttribute('aria-busy', 'true'); panel.replaceChildren(); playButton.disabled = resetButton.disabled = linkSelect.disabled = true;
     document.querySelectorAll('[data-object]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.object === id)));
     document.querySelector('#object-title').textContent = `${objects[id].title} / ${id}`;
-    referenceTitle.textContent = `${objects[id].title} / ${id}`;
-    referenceImage.src = objects[id].reference;
-    referenceImage.alt = `${objects[id].label} reference image`;
+    loadReference(id, token);
     stage.setAttribute('aria-label', `Interactive 3D ${objects[id].label.toLowerCase()}: drag to orbit, scroll to zoom, and click to select a part`);
     try {
       setup();

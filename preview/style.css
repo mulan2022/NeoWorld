@@ -1,4 +1,4 @@
-@import url("viewer.css?v=comparison-21");
+@import url("viewer.css?v=comparison-22");
 @font-face{font-family:"Fusion Pixel";src:url("./assets/fusion-pixel-latin-subset.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 :root{--bg:#161616;--accent:#b8f34a;--text:#eeeeeb;--muted:#aaa9a5;--section:#101010;--line:#ffffff1c;--hero-wire:#8b9875;--viewer-bg:#161616;color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--section);color:var(--text)}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{color:inherit;cursor:pointer}a,button{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:5px}a:hover{color:var(--accent)}p{font-size:17px;line-height:1.82;color:var(--muted)}.skip-link{position:fixed;top:-100px;left:20px;z-index:10;background:var(--accent);color:#101010;padding:12px}.skip-link:focus{top:15px}

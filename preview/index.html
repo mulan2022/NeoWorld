@@ -11,12 +11,12 @@
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
   <script>{const theme=new URLSearchParams(location.search).get('theme');if(theme==='light'||theme==='ocean')document.documentElement.classList.add(`theme-${theme}`);if(theme==='ocean')document.querySelector('meta[name="theme-color"]').content='#0b1420'}</script>
-  <link rel="stylesheet" href="style.css?v=workflow-23">
+  <link rel="stylesheet" href="style.css?v=workflow-24">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="scene-hero.js?v=palette-21"></script>
   <script defer src="app.js?v=palette-21"></script>
-  <script defer src="lazy-media.js?v=performance-18"></script>
+  <script defer src="lazy-media.js?v=performance-19"></script>
   <script defer src="scene-video.js?v=lazy-16"></script>
 </head>
 <body>
@@ -188,6 +188,7 @@
       <div class="object-comparison">
         <figure class="object-reference">
           <img id="object-reference-image" src="./assets/batch5_collision_references_image3/10449_image_3.png" alt="Scissors reference image">
+          <div class="object-reference-loading" id="object-reference-loading" role="status" hidden><span class="loading-orbit"></span><p>Loading scissors reference…</p></div>
           <figcaption><span>REFERENCE / IMAGE 03</span><span id="object-reference-title">SCISSORS / 10449</span></figcaption>
         </figure>
         <div class="object-stage">
