@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="brand/neoworld-favicon.svg?v=black-7">
   <title>NeoWorld-3 — Building Interactive Worlds for Embodied Intelligence</title>
   <script>{const theme=new URLSearchParams(location.search).get('theme');if(theme==='light'||theme==='ocean')document.documentElement.classList.add(`theme-${theme}`);if(theme==='ocean')document.querySelector('meta[name="theme-color"]').content='#0b1420'}</script>
-  <link rel="stylesheet" href="style.css?v=workflow-28">
+  <link rel="stylesheet" href="style.css?v=workflow-29">
   <script defer src="vendor/three.min.js"></script>
   <script defer src="vendor/anime.umd.min.js"></script>
   <script defer src="scene-hero.js?v=palette-21"></script>
@@ -66,15 +66,16 @@
               <div class="workflow-board" role="img" aria-label="Animated NeoWorld-3 reconstruction workflow from observations and targets through Studio agents, refinement, retained assets, recursive self-improvement, and physics validation">
                 <section class="workflow-panel workflow-observation">
                   <h3><img class="workflow-icon" src="./assets/architecture/icons/camera.png" alt=""> Observation</h3>
-                  <img class="workflow-media workflow-media-large" src="./assets/architecture/observation.gif" alt="Reference observations of reconstructed objects" loading="lazy">
+                  <img class="workflow-media workflow-media-large" src="./assets/reference_image_3_5ids/reference_image_3/100520.png" alt="Reference image of the folding chair used as the reconstruction observation" loading="lazy">
                   <p>Object or scene</p>
                 </section>
 
                 <section class="workflow-panel workflow-target">
                   <h3><img class="workflow-icon" src="./assets/architecture/icons/target.png" alt=""> Target</h3>
                   <p class="workflow-label">Masks + cameras</p>
-                  <img class="workflow-media workflow-media-large" src="./assets/architecture/target.gif" alt="Animated target masks and depth views rendered from the URDF chair" loading="lazy">
+                  <img class="workflow-target-evidence workflow-target-mask" src="./assets/architecture/target-mask-camera-v2.png" alt="Binary folding-chair mask with camera and viewing frustum" loading="lazy">
                   <p class="workflow-label">Optional depth</p>
+                  <img class="workflow-target-evidence workflow-target-depth" src="./assets/architecture/target-depth-v2.png" alt="Grayscale and false-color depth views of the folding chair" loading="lazy">
                 </section>
 
                 <section class="workflow-panel workflow-harness">
